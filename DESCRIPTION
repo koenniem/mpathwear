@@ -30,3 +30,5 @@ Suggests:
 Depends: 
     R (>= 4.2.0)
 LazyData: true
+URL: https://github.com/koenniem/mpathwear
+BugReports: https://github.com/koenniem/mpathwear/issues
