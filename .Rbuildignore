@@ -1,0 +1,8 @@
+^wearables\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^README\.Rmd$
+^proj_data$
+^[.]?air[.]toml$
+^\.vscode$
+^CODE_OF_CONDUCT\.md$
