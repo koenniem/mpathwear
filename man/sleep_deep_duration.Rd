@@ -29,3 +29,6 @@ A data frame with columns for \code{day} and \code{SleepDeepDuration} (in second
 \description{
 Calculates the total time spent in deep sleep for each night from intraday wearable data.
 }
+\seealso{
+\code{\link[=sleep_rem_duration]{sleep_rem_duration()}}, \code{\link[=sleep_duration]{sleep_duration()}}, \code{\link[=sleep_chart]{sleep_chart()}}
+}

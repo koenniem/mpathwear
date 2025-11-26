@@ -14,7 +14,7 @@ respiration_chart(
 )
 }
 \arguments{
-\item{.data}{A data frame containing the wearable data, typically from \code{\link[=clean_dynamic_data]{clean_dynamic_data()}}.}
+\item{.data}{A data frame containing the wearable data.}
 
 \item{start}{The name of the column containing start timestamps. Defaults to \code{"start_time"}.}
 

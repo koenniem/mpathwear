@@ -14,7 +14,7 @@
 )
 }
 \arguments{
-\item{.data}{A data frame containing the wearable data.}
+\item{.data}{A data frame containing the wearable data, typically from \code{\link[=clean_dynamic_data]{clean_dynamic_data()}}.}
 
 \item{vars}{A character vector of sleep-related variable types to filter for.}
 

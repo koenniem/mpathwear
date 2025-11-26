@@ -14,7 +14,7 @@ stress_chart_discrete(
 )
 }
 \arguments{
-\item{.data}{A data frame containing the wearable data, typically from \code{\link[=clean_dynamic_data]{clean_dynamic_data()}}.}
+\item{.data}{A data frame containing the wearable data.}
 
 \item{start}{The name of the column containing start timestamps. Defaults to \code{"start_time"}.}
 
@@ -32,4 +32,7 @@ A \link[ggplot2:ggplot]{ggplot2::ggplot} object displaying discrete stress state
 \description{
 Creates a visualization of discrete stress states (Low, Medium, High) over time from
 wearable data.
+}
+\seealso{
+\code{\link[=stress_chart]{stress_chart()}} for continuous stress levels
 }

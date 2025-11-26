@@ -30,3 +30,6 @@ A data frame with columns for \code{day} and \code{SleepInBedDuration} (in secon
 Calculates the total duration spent in bed (from first to last sleep-related measurement)
 for each night, regardless of whether the person was asleep or awake.
 }
+\seealso{
+\code{\link[=sleep_duration]{sleep_duration()}}, \code{\link[=sleep_efficiency]{sleep_efficiency()}}, \code{\link[=sleep_chart]{sleep_chart()}}
+}

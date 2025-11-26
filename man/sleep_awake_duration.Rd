@@ -30,3 +30,6 @@ A data frame with columns for \code{day} and \code{SleepAwakeDuration} (in secon
 Calculates the total time spent awake during sleep periods for each night from intraday
 wearable data.
 }
+\seealso{
+\code{\link[=sleep_duration]{sleep_duration()}}, \code{\link[=sleep_efficiency]{sleep_efficiency()}}, \code{\link[=sleep_chart]{sleep_chart()}}
+}

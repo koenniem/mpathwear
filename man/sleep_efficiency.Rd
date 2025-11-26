@@ -31,3 +31,6 @@ A data frame with columns for \code{day} and \code{SleepEfficiency} (as a propor
 Calculates sleep efficiency as the ratio of actual sleep time to time spent in bed.
 Sleep efficiency is computed as \code{(SleepInBedDuration - SleepAwakeDuration) / SleepInBedDuration}.
 }
+\seealso{
+\code{\link[=sleep_duration]{sleep_duration()}}, \code{\link[=sleep_score]{sleep_score()}}, \code{\link[=sleep_chart]{sleep_chart()}}
+}

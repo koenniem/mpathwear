@@ -14,7 +14,7 @@ activity_intensity_chart(
 )
 }
 \arguments{
-\item{.data}{A data frame containing the wearable data, typically from \code{\link[=clean_dynamic_data]{clean_dynamic_data()}}.}
+\item{.data}{A data frame containing the wearable data.}
 
 \item{start}{The name of the column containing start timestamps. Defaults to \code{"start_time"}.}
 
@@ -32,4 +32,7 @@ A \link[ggplot2:ggplot]{ggplot2::ggplot} object displaying activity intensity le
 \description{
 Creates a visualization of activity intensity levels (Sedentary, Low, Medium, High) over time
 from wearable data.
+}
+\seealso{
+\code{\link[=activity_chart]{activity_chart()}} for activity types, \code{\link[=steps_chart]{steps_chart()}} for step counts
 }

@@ -30,3 +30,6 @@ A data frame with columns for \code{day} and \code{SleepOnSetLatency} (in second
 Calculates the time between getting into bed and falling asleep for each night.
 This is the duration from the first \code{SleepInBedBinary} to the first \code{SleepStateBinary}.
 }
+\seealso{
+\code{\link[=sleep_efficiency]{sleep_efficiency()}}, \code{\link[=sleep_score]{sleep_score()}}, \code{\link[=sleep_chart]{sleep_chart()}}
+}

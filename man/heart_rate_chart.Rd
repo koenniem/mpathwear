@@ -15,7 +15,7 @@ heart_rate_chart(
 )
 }
 \arguments{
-\item{.data}{A data frame containing the wearable data, typically from \code{\link[=clean_dynamic_data]{clean_dynamic_data()}}.}
+\item{.data}{A data frame containing the wearable data.}
 
 \item{start}{The name of the column containing start timestamps. Defaults to \code{"start_time"}.}
 
@@ -36,4 +36,7 @@ A \link[ggplot2:ggplot]{ggplot2::ggplot} object displaying heart rate measuremen
 \description{
 Creates a visualization of heart rate measurements over time from wearable data.
 The chart displays heart rate values with optional daily average lines.
+}
+\seealso{
+\code{\link[=hrv_chart]{hrv_chart()}} for heart rate variability
 }

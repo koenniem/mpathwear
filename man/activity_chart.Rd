@@ -15,7 +15,7 @@ activity_chart(
 )
 }
 \arguments{
-\item{.data}{A data frame containing the wearable data, typically from \code{\link[=clean_dynamic_data]{clean_dynamic_data()}}.}
+\item{.data}{A data frame containing the wearable data.}
 
 \item{start}{The name of the column containing start timestamps. Defaults to \code{"start_time"}.}
 
@@ -37,4 +37,8 @@ A \link[ggplot2:ggplot]{ggplot2::ggplot} object displaying activity types over t
 Creates a visualization of activity types over time from wearable data. The chart can display
 activities either as merged horizontal bars per day or as individual activity segments with
 transitions.
+}
+\seealso{
+\code{\link[=activity_intensity_chart]{activity_intensity_chart()}} for activity intensity levels, \code{\link[=steps_chart]{steps_chart()}} for
+step counts
 }

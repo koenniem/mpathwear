@@ -41,3 +41,6 @@ Arora, A., Chakraborty, P., & Bhatia, M. P. S. (2020). Analysis of Data from Wea
 Sensors for Sleep Quality Estimation and Prediction Using Deep Learning. Arabian Journal
 for Science and Engineering, 45(12), 10793-10812. \doi{10.1007/s13369-020-04877-w}
 }
+\seealso{
+\code{\link[=sleep_duration]{sleep_duration()}}, \code{\link[=sleep_efficiency]{sleep_efficiency()}}, \code{\link[=sleep_chart]{sleep_chart()}}
+}

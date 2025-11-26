@@ -15,7 +15,7 @@ stress_chart(
 )
 }
 \arguments{
-\item{.data}{A data frame containing the wearable data, typically from \code{\link[=clean_dynamic_data]{clean_dynamic_data()}}.}
+\item{.data}{A data frame containing the wearable data.}
 
 \item{start}{The name of the column containing start timestamps. Defaults to \code{"start_time"}.}
 
@@ -36,4 +36,7 @@ A \link[ggplot2:ggplot]{ggplot2::ggplot} object displaying stress levels faceted
 \description{
 Creates a visualization of continuous stress level measurements over time from wearable data.
 Stress values are shown on a scale of 0 to 100.
+}
+\seealso{
+\code{\link[=stress_chart_discrete]{stress_chart_discrete()}} for discrete stress states
 }
