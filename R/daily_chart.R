@@ -1,3 +1,18 @@
+#' Create a daily summary chart
+#'
+#' Creates a line chart visualization of daily summary wearable data metrics over time.
+#' Each variable is displayed in its own facet with points connected by lines.
+#'
+#' @param .data A data frame containing the daily wearable data, typically from
+#'   [clean_daily_data()].
+#' @param day The name of the column containing date values. Defaults to `"day"`.
+#' @param variable The name of the column containing variable names. Defaults to `"variable"`.
+#' @param value The name of the column containing measurement values. Defaults to `"value"`.
+#'
+#' @return A [ggplot2::ggplot] object displaying daily metrics as line charts faceted by
+#'   variable type.
+#'
+#' @export
 daily_chart <- function(
   .data,
   day = "day",

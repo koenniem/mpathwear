@@ -1,3 +1,20 @@
+#' Create a data coverage chart
+#'
+#' Creates a visualization showing the temporal coverage of wearable data across participants
+#' and variable types. This is useful for assessing data completeness and identifying gaps.
+#'
+#' @param .data A data frame containing the wearable data, typically from [clean_dynamic_data()].
+#' @param participant The name of the column containing participant identifiers. Defaults to
+#'   `"connectionId"`.
+#' @param start The name of the column containing start timestamps. Defaults to `"start_time"`.
+#' @param end The name of the column containing end timestamps. Defaults to `"end_time"`.
+#' @param variable The name of the column containing variable names. Defaults to `"variable"`.
+#' @param tz_offset The name of the column containing timezone offsets. Defaults to `"tz_offset"`.
+#'
+#' @return A [ggplot2::ggplot] object displaying data coverage as horizontal segments per
+#'   participant, faceted by variable type.
+#'
+#' @export
 coverage_chart <- function(
   .data,
   participant = "connectionId",
@@ -51,6 +68,21 @@ coverage_chart <- function(
     )
 }
 
+#' Create a daily data coverage chart
+#'
+#' Creates a tile-based visualization showing which days have data coverage for each participant
+#' and variable type. This provides a clear overview of data availability at the daily level.
+#'
+#' @param .data A data frame containing the wearable data, typically from [clean_daily_data()].
+#' @param participant The name of the column containing participant identifiers. Defaults to
+#'   `"connectionId"`.
+#' @param time The name of the column containing day/date values. Defaults to `"day"`.
+#' @param variable The name of the column containing variable names. Defaults to `"variable"`.
+#'
+#' @return A [ggplot2::ggplot] object displaying daily data coverage as tiles per participant,
+#'   faceted by variable type.
+#'
+#' @export
 daily_coverage_chart <- function(
   .data,
   participant = "connectionId",

@@ -1,3 +1,20 @@
+#' Create a continuous value chart
+#'
+#' Internal function that creates a faceted line chart for continuous wearable data measurements
+#' over time.
+#'
+#' @param .data A data frame containing the wearable data.
+#' @param type A character vector of variable types to filter for (e.g., "HeartRate", "Stress").
+#' @param start The name of the column containing start timestamps. Defaults to `"start_time"`.
+#' @param end The name of the column containing end timestamps. Defaults to `"end_time"`.
+#' @param variable The name of the column containing variable names. Defaults to `"variable"`.
+#' @param value The name of the column containing measurement values. Defaults to `"value"`.
+#' @param tz_offset The name of the column containing timezone offsets. Defaults to `"tz_offset"`.
+#'
+#' @return A [ggplot2::ggplot] object displaying the continuous data as a line chart faceted by
+#'   date.
+#'
+#' @keywords internal
 continuous_chart <- function(
   .data,
   type,
@@ -84,6 +101,25 @@ continuous_chart <- function(
   p
 }
 
+#' Create a discrete state chart
+#'
+#' Internal function that creates a faceted segment chart for discrete wearable data states
+#' over time (e.g., sleep stages, activity intensity levels).
+#'
+#' @param .data A data frame containing the wearable data.
+#' @param types A character vector of variable types to filter for.
+#' @param names A character vector of display names corresponding to the types.
+#' @param start The name of the column containing start timestamps. Defaults to `"start_time"`.
+#' @param end The name of the column containing end timestamps. Defaults to `"end_time"`.
+#' @param variable The name of the column containing variable names. Defaults to `"variable"`.
+#' @param value The name of the column containing measurement values. Defaults to `"value"`.
+#' @param tz_offset The name of the column containing timezone offsets. Defaults to `"tz_offset"`.
+#' @param .call The calling environment for error messages.
+#'
+#' @return A [ggplot2::ggplot] object displaying the discrete states as horizontal segments
+#'   faceted by day.
+#'
+#' @keywords internal
 discrete_chart <- function(
   .data,
   types,
