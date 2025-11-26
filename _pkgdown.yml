@@ -2,3 +2,72 @@ url: https://koenniem.github.io/mpathwear/
 template:
   bootstrap: 5
 
+template:
+  bootstrap: 5
+  bslib:
+    bootswatch: materia
+    primary: "#0a6ab6"
+  trailing_slash_redirect: true
+  light-switch: true
+
+authors:
+  Koen Niemeijer:
+    href: https://ppw.kuleuven.be/okp/team/Koen_Niemeijer/
+
+navbar:
+  structure:
+    left:  [intro, reference, articles, tutorials, news]
+    right: [lightswitch, search, github]
+  components:
+    github:
+      icon: fa-github
+      href: https://github.com/koenniem/mpathwear
+      aria-label: Github
+
+repo:
+  url:
+    home: https://koenniem.github.io/mpathwear/
+    source: https://github.com/koenniem/mpathwear/tree/main
+    issue: https://github.com/koenniem/mpathwear/issues
+    branch: main
+
+reference:
+  - title: Importing data
+    contents:
+      - clean_daily_data
+      - clean_dynamic_data
+      - read_mpathwear
+
+  - title: Visualisation
+    contents:
+      - activity_chart
+      - activity_intensity_chart
+      - coverage_chart
+      - daily_chart
+      - daily_coverage_chart
+      - heart_rate_chart
+      - hrv_chart
+      - respiration_chart
+      - sleep_chart
+      - steps_chart
+      - stress_chart
+      - stress_chart_discrete
+
+  - title: Computations
+    contents:
+      - sleep_awake_duration
+      - sleep_deep_duration
+      - sleep_duration
+      - sleep_efficiency
+      - sleep_in_bed_duration
+      - sleep_onset_latency
+      - sleep_regularity
+      - sleep_rem_duration
+      - sleep_score
+      - summarise_overlapping_time
+
+  - title: Datasets
+    contents:
+      - activity_types
+      - codebook
+      - data_sources
