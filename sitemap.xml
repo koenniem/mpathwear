@@ -1,19 +1,20 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
-<url><loc>/404.html</loc></url>
-<url><loc>/CODE_OF_CONDUCT.html</loc></url>
-<url><loc>/LICENSE.html</loc></url>
-<url><loc>/authors.html</loc></url>
-<url><loc>/index.html</loc></url>
-<url><loc>/news/index.html</loc></url>
-<url><loc>/reference/activity_types.html</loc></url>
-<url><loc>/reference/clean_daily_data.html</loc></url>
-<url><loc>/reference/clean_dynamic_data.html</loc></url>
-<url><loc>/reference/codebook.html</loc></url>
-<url><loc>/reference/data_sources.html</loc></url>
-<url><loc>/reference/dot-mpath_locale.html</loc></url>
-<url><loc>/reference/index.html</loc></url>
-<url><loc>/reference/mpathwear-package.html</loc></url>
-<url><loc>/reference/read_mpathwear.html</loc></url>
-<url><loc>/reference/summarise_overlapping_time.html</loc></url>
+<url><loc>https://koenniem.github.io/mpathwear/404.html</loc></url>
+<url><loc>https://koenniem.github.io/mpathwear/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://koenniem.github.io/mpathwear/CONTRIBUTING.html</loc></url>
+<url><loc>https://koenniem.github.io/mpathwear/LICENSE.html</loc></url>
+<url><loc>https://koenniem.github.io/mpathwear/authors.html</loc></url>
+<url><loc>https://koenniem.github.io/mpathwear/index.html</loc></url>
+<url><loc>https://koenniem.github.io/mpathwear/news/index.html</loc></url>
+<url><loc>https://koenniem.github.io/mpathwear/reference/activity_types.html</loc></url>
+<url><loc>https://koenniem.github.io/mpathwear/reference/clean_daily_data.html</loc></url>
+<url><loc>https://koenniem.github.io/mpathwear/reference/clean_dynamic_data.html</loc></url>
+<url><loc>https://koenniem.github.io/mpathwear/reference/codebook.html</loc></url>
+<url><loc>https://koenniem.github.io/mpathwear/reference/data_sources.html</loc></url>
+<url><loc>https://koenniem.github.io/mpathwear/reference/dot-mpath_locale.html</loc></url>
+<url><loc>https://koenniem.github.io/mpathwear/reference/index.html</loc></url>
+<url><loc>https://koenniem.github.io/mpathwear/reference/mpathwear-package.html</loc></url>
+<url><loc>https://koenniem.github.io/mpathwear/reference/read_mpathwear.html</loc></url>
+<url><loc>https://koenniem.github.io/mpathwear/reference/summarise_overlapping_time.html</loc></url>
 </urlset>
 
