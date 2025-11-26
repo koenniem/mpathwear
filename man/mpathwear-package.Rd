@@ -8,6 +8,15 @@
 \description{
 What the package does (one paragraph).
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/koenniem/mpathwear}
+  \item \url{https://koenniem.github.io/mpathwear/}
+  \item Report bugs at \url{https://github.com/koenniem/mpathwear/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Koen Niemeijer \email{koen.niemeijer@kuleuven.be} (\href{https://orcid.org/0000-0002-0816-534X}{ORCID})
 
