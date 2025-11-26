@@ -6,13 +6,12 @@
 #' @param .data A data frame containing the wearable data, typically from [clean_dynamic_data()].
 #' @param participant The name of the column containing participant identifiers. Defaults to
 #'   `"connectionId"`.
-#' @param start The name of the column containing start timestamps. Defaults to `"start_time"`.
-#' @param end The name of the column containing end timestamps. Defaults to `"end_time"`.
-#' @param variable The name of the column containing variable names. Defaults to `"variable"`.
-#' @param tz_offset The name of the column containing timezone offsets. Defaults to `"tz_offset"`.
+#' @inheritParams continuous_chart
 #'
 #' @return A [ggplot2::ggplot] object displaying data coverage as horizontal segments per
 #'   participant, faceted by variable type.
+#'
+#' @seealso [daily_coverage_chart()] for daily-level coverage
 #'
 #' @export
 coverage_chart <- function(
@@ -81,6 +80,8 @@ coverage_chart <- function(
 #'
 #' @return A [ggplot2::ggplot] object displaying daily data coverage as tiles per participant,
 #'   faceted by variable type.
+#'
+#' @seealso [coverage_chart()] for intraday coverage
 #'
 #' @export
 daily_coverage_chart <- function(

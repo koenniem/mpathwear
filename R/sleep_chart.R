@@ -3,15 +3,13 @@
 #' Creates a visualization of sleep stages (Awake, REM, Light, Deep) over time from wearable
 #' data. The chart shows sleep stage transitions throughout each night.
 #'
-#' @param .data A data frame containing the wearable data, typically from [clean_dynamic_data()].
-#' @param start The name of the column containing start timestamps. Defaults to `"start_time"`.
-#' @param end The name of the column containing end timestamps. Defaults to `"end_time"`.
-#' @param variable The name of the column containing variable names. Defaults to `"variable"`.
-#' @param tz_offset The name of the column containing timezone offsets. Defaults to `"tz_offset"`.
+#' @inheritParams .sleep_prep
 #' @param add_bed_time Logical. If `TRUE` (default), adds dotted vertical lines and labels
 #'   showing bedtime and wake time.
 #'
 #' @return A [ggplot2::ggplot] object displaying sleep stages faceted by night.
+#'
+#' @seealso [sleep_duration()], [sleep_efficiency()], [sleep_score()] for sleep metrics
 #'
 #' @export
 sleep_chart <- function(
@@ -177,7 +175,7 @@ sleep_chart <- function(
 #' Internal helper function that filters and prepares sleep data for duration and metric
 #' calculations.
 #'
-#' @param .data A data frame containing the wearable data.
+#' @param .data A data frame containing the wearable data, typically from [clean_dynamic_data()].
 #' @param vars A character vector of sleep-related variable types to filter for.
 #' @param start The name of the column containing start timestamps. Defaults to `"start_time"`.
 #' @param end The name of the column containing end timestamps. Defaults to `"end_time"`.
@@ -237,13 +235,11 @@ sleep_chart <- function(
 #' Calculates the total time spent awake during sleep periods for each night from intraday
 #' wearable data.
 #'
-#' @param .data A data frame containing the wearable data, typically from [clean_dynamic_data()].
-#' @param start The name of the column containing start timestamps. Defaults to `"start_time"`.
-#' @param end The name of the column containing end timestamps. Defaults to `"end_time"`.
-#' @param variable The name of the column containing variable names. Defaults to `"variable"`.
-#' @param tz_offset The name of the column containing timezone offsets. Defaults to `"tz_offset"`.
+#' @inheritParams .sleep_prep
 #'
 #' @return A data frame with columns for `day` and `SleepAwakeDuration` (in seconds).
+#'
+#' @seealso [sleep_duration()], [sleep_efficiency()], [sleep_chart()]
 #'
 #' @export
 sleep_awake_duration <- function(
@@ -282,13 +278,11 @@ sleep_awake_duration <- function(
 #'
 #' Calculates the total time spent in REM sleep for each night from intraday wearable data.
 #'
-#' @param .data A data frame containing the wearable data, typically from [clean_dynamic_data()].
-#' @param start The name of the column containing start timestamps. Defaults to `"start_time"`.
-#' @param end The name of the column containing end timestamps. Defaults to `"end_time"`.
-#' @param variable The name of the column containing variable names. Defaults to `"variable"`.
-#' @param tz_offset The name of the column containing timezone offsets. Defaults to `"tz_offset"`.
+#' @inheritParams .sleep_prep
 #'
 #' @return A data frame with columns for `day` and `SleepREMDuration` (in seconds).
+#'
+#' @seealso [sleep_deep_duration()], [sleep_duration()], [sleep_chart()]
 #'
 #' @export
 sleep_rem_duration <- function(
@@ -327,13 +321,11 @@ sleep_rem_duration <- function(
 #'
 #' Calculates the total time spent in deep sleep for each night from intraday wearable data.
 #'
-#' @param .data A data frame containing the wearable data, typically from [clean_dynamic_data()].
-#' @param start The name of the column containing start timestamps. Defaults to `"start_time"`.
-#' @param end The name of the column containing end timestamps. Defaults to `"end_time"`.
-#' @param variable The name of the column containing variable names. Defaults to `"variable"`.
-#' @param tz_offset The name of the column containing timezone offsets. Defaults to `"tz_offset"`.
+#' @inheritParams .sleep_prep
 #'
 #' @return A data frame with columns for `day` and `SleepDeepDuration` (in seconds).
+#'
+#' @seealso [sleep_rem_duration()], [sleep_duration()], [sleep_chart()]
 #'
 #' @export
 sleep_deep_duration <- function(
@@ -373,13 +365,11 @@ sleep_deep_duration <- function(
 #' Calculates the total duration spent in bed (from first to last sleep-related measurement)
 #' for each night, regardless of whether the person was asleep or awake.
 #'
-#' @param .data A data frame containing the wearable data, typically from [clean_dynamic_data()].
-#' @param start The name of the column containing start timestamps. Defaults to `"start_time"`.
-#' @param end The name of the column containing end timestamps. Defaults to `"end_time"`.
-#' @param variable The name of the column containing variable names. Defaults to `"variable"`.
-#' @param tz_offset The name of the column containing timezone offsets. Defaults to `"tz_offset"`.
+#' @inheritParams .sleep_prep
 #'
 #' @return A data frame with columns for `day` and `SleepInBedDuration` (in seconds).
+#'
+#' @seealso [sleep_duration()], [sleep_efficiency()], [sleep_chart()]
 #'
 #' @export
 sleep_in_bed_duration <- function(
@@ -434,13 +424,11 @@ sleep_in_bed_duration <- function(
 #' Calculates the total time spent asleep (excluding awake periods) for each night from
 #' intraday wearable data. This includes light, REM, and deep sleep stages.
 #'
-#' @param .data A data frame containing the wearable data, typically from [clean_dynamic_data()].
-#' @param start The name of the column containing start timestamps. Defaults to `"start_time"`.
-#' @param end The name of the column containing end timestamps. Defaults to `"end_time"`.
-#' @param variable The name of the column containing variable names. Defaults to `"variable"`.
-#' @param tz_offset The name of the column containing timezone offsets. Defaults to `"tz_offset"`.
+#' @inheritParams .sleep_prep
 #'
 #' @return A data frame with columns for `day` and `SleepDuration` (in seconds).
+#'
+#' @seealso [sleep_efficiency()], [sleep_score()], [sleep_chart()]
 #'
 #' @export
 sleep_duration <- function(
@@ -492,13 +480,11 @@ sleep_duration <- function(
 #' Calculates the time between getting into bed and falling asleep for each night.
 #' This is the duration from the first `SleepInBedBinary` to the first `SleepStateBinary`.
 #'
-#' @param .data A data frame containing the wearable data, typically from [clean_dynamic_data()].
-#' @param start The name of the column containing start timestamps. Defaults to `"start_time"`.
-#' @param end The name of the column containing end timestamps. Defaults to `"end_time"`.
-#' @param variable The name of the column containing variable names. Defaults to `"variable"`.
-#' @param tz_offset The name of the column containing timezone offsets. Defaults to `"tz_offset"`.
+#' @inheritParams .sleep_prep
 #'
 #' @return A data frame with columns for `day` and `SleepOnSetLatency` (in seconds).
+#'
+#' @seealso [sleep_efficiency()], [sleep_score()], [sleep_chart()]
 #'
 #' @export
 sleep_onset_latency <- function(
@@ -549,14 +535,12 @@ sleep_onset_latency <- function(
 #' Calculates sleep efficiency as the ratio of actual sleep time to time spent in bed.
 #' Sleep efficiency is computed as `(SleepInBedDuration - SleepAwakeDuration) / SleepInBedDuration`.
 #'
-#' @param .data A data frame containing the wearable data, typically from [clean_dynamic_data()].
-#' @param start The name of the column containing start timestamps. Defaults to `"start_time"`.
-#' @param end The name of the column containing end timestamps. Defaults to `"end_time"`.
-#' @param variable The name of the column containing variable names. Defaults to `"variable"`.
-#' @param tz_offset The name of the column containing timezone offsets. Defaults to `"tz_offset"`.
+#' @inheritParams .sleep_prep
 #'
 #' @return A data frame with columns for `day` and `SleepEfficiency` (as a proportion between
 #'   0 and 1).
+#'
+#' @seealso [sleep_duration()], [sleep_score()], [sleep_chart()]
 #'
 #' @export
 sleep_efficiency <- function(
@@ -608,16 +592,14 @@ sleep_efficiency <- function(
 #' Values below 60% are associated with a significantly higher likelihood for Alzheimer's
 #' disease, depression, and cardiovascular diseases.
 #'
-#' @param .data A data frame containing the wearable data, typically from [clean_dynamic_data()].
-#' @param start The name of the column containing start timestamps. Defaults to `"start_time"`.
-#' @param end The name of the column containing end timestamps. Defaults to `"end_time"`.
-#' @param variable The name of the column containing variable names. Defaults to `"variable"`.
-#' @param tz_offset The name of the column containing timezone offsets. Defaults to `"tz_offset"`.
+#' @inheritParams .sleep_prep
 #'
 #' @return A data frame with the `sleep_regularity` score (ranging from -100 to 100, where
 #'   100 indicates perfect regularity).
 #'
 #' @note This function requires the `mpathsenser` package to be installed.
+#'
+#' @seealso [sleep_score()], [sleep_chart()]
 #'
 #' @export
 sleep_regularity <- function(
@@ -713,11 +695,7 @@ sleep_regularity <- function(
 #' Data from Wearable Sensors for Sleep Quality Estimation and Prediction Using Deep Learning.
 #' Arabian Journal for Science and Engineering, 45(12), 10793-10812.
 #'
-#' @param .data A data frame containing the wearable data, typically from [clean_dynamic_data()].
-#' @param start The name of the column containing start timestamps. Defaults to `"start_time"`.
-#' @param end The name of the column containing end timestamps. Defaults to `"end_time"`.
-#' @param variable The name of the column containing variable names. Defaults to `"variable"`.
-#' @param tz_offset The name of the column containing timezone offsets. Defaults to `"tz_offset"`.
+#' @inheritParams .sleep_prep
 #'
 #' @return A data frame with columns for `day` and `sleep_score`. Lower scores indicate better
 #'   sleep quality.
@@ -726,6 +704,8 @@ sleep_regularity <- function(
 #' Arora, A., Chakraborty, P., & Bhatia, M. P. S. (2020). Analysis of Data from Wearable
 #' Sensors for Sleep Quality Estimation and Prediction Using Deep Learning. Arabian Journal
 #' for Science and Engineering, 45(12), 10793-10812. \doi{10.1007/s13369-020-04877-w}
+#'
+#' @seealso [sleep_duration()], [sleep_efficiency()], [sleep_chart()]
 #'
 #' @export
 sleep_score <- function(

@@ -4,16 +4,14 @@
 #' activities either as merged horizontal bars per day or as individual activity segments with
 #' transitions.
 #'
-#' @param .data A data frame containing the wearable data, typically from [clean_dynamic_data()].
-#' @param start The name of the column containing start timestamps. Defaults to `"start_time"`.
-#' @param end The name of the column containing end timestamps. Defaults to `"end_time"`.
-#' @param variable The name of the column containing variable names. Defaults to `"variable"`.
-#' @param value The name of the column containing measurement values. Defaults to `"value"`.
-#' @param tz_offset The name of the column containing timezone offsets. Defaults to `"tz_offset"`.
+#' @inheritParams discrete_chart
 #' @param merged_bars Logical. If `TRUE` (default), activities are shown as a single row per day.
 #'   If `FALSE`, activities are shown with vertical transitions between states.
 #'
 #' @return A [ggplot2::ggplot] object displaying activity types over time.
+#'
+#' @seealso [activity_intensity_chart()] for activity intensity levels, [steps_chart()] for
+#'   step counts
 #'
 #' @export
 activity_chart <- function(
@@ -125,14 +123,11 @@ activity_chart <- function(
 #' Creates a visualization of activity intensity levels (Sedentary, Low, Medium, High) over time
 #' from wearable data.
 #'
-#' @param .data A data frame containing the wearable data, typically from [clean_dynamic_data()].
-#' @param start The name of the column containing start timestamps. Defaults to `"start_time"`.
-#' @param end The name of the column containing end timestamps. Defaults to `"end_time"`.
-#' @param variable The name of the column containing variable names. Defaults to `"variable"`.
-#' @param value The name of the column containing measurement values. Defaults to `"value"`.
-#' @param tz_offset The name of the column containing timezone offsets. Defaults to `"tz_offset"`.
+#' @inheritParams discrete_chart
 #'
 #' @return A [ggplot2::ggplot] object displaying activity intensity levels over time.
+#'
+#' @seealso [activity_chart()] for activity types, [steps_chart()] for step counts
 #'
 #' @export
 activity_intensity_chart <- function(
@@ -166,14 +161,12 @@ activity_intensity_chart <- function(
 #' Creates a visualization of cumulative step counts over time from wearable data. The chart
 #' displays steps as a line graph with the cumulative count building up throughout each day.
 #'
-#' @param .data A data frame containing the wearable data, typically from [clean_dynamic_data()].
-#' @param start The name of the column containing start timestamps. Defaults to `"start_time"`.
-#' @param end The name of the column containing end timestamps. Defaults to `"end_time"`.
-#' @param variable The name of the column containing variable names. Defaults to `"variable"`.
-#' @param value The name of the column containing measurement values. Defaults to `"value"`.
-#' @param tz_offset The name of the column containing timezone offsets. Defaults to `"tz_offset"`.
+#' @inheritParams continuous_chart
 #'
 #' @return A [ggplot2::ggplot] object displaying cumulative step counts faceted by date.
+#'
+#' @seealso [activity_chart()] for activity types, [activity_intensity_chart()] for intensity
+#'   levels
 #'
 #' @export
 steps_chart <- function(

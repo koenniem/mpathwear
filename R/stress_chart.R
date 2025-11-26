@@ -3,16 +3,13 @@
 #' Creates a visualization of continuous stress level measurements over time from wearable data.
 #' Stress values are shown on a scale of 0 to 100.
 #'
-#' @param .data A data frame containing the wearable data, typically from [clean_dynamic_data()].
-#' @param start The name of the column containing start timestamps. Defaults to `"start_time"`.
-#' @param end The name of the column containing end timestamps. Defaults to `"end_time"`.
-#' @param variable The name of the column containing variable names. Defaults to `"variable"`.
-#' @param value The name of the column containing measurement values. Defaults to `"value"`.
-#' @param tz_offset The name of the column containing timezone offsets. Defaults to `"tz_offset"`.
+#' @inheritParams continuous_chart
 #' @param add_average Logical. If `TRUE` (default), adds a dashed horizontal line showing the
 #'   daily average stress level.
 #'
 #' @return A [ggplot2::ggplot] object displaying stress levels faceted by date.
+#'
+#' @seealso [stress_chart_discrete()] for discrete stress states
 #'
 #' @export
 stress_chart <- function(
@@ -61,14 +58,11 @@ stress_chart <- function(
 #' Creates a visualization of discrete stress states (Low, Medium, High) over time from
 #' wearable data.
 #'
-#' @param .data A data frame containing the wearable data, typically from [clean_dynamic_data()].
-#' @param start The name of the column containing start timestamps. Defaults to `"start_time"`.
-#' @param end The name of the column containing end timestamps. Defaults to `"end_time"`.
-#' @param variable The name of the column containing variable names. Defaults to `"variable"`.
-#' @param value The name of the column containing measurement values. Defaults to `"value"`.
-#' @param tz_offset The name of the column containing timezone offsets. Defaults to `"tz_offset"`.
+#' @inheritParams discrete_chart
 #'
 #' @return A [ggplot2::ggplot] object displaying discrete stress states faceted by day.
+#'
+#' @seealso [stress_chart()] for continuous stress levels
 #'
 #' @export
 stress_chart_discrete <- function(
