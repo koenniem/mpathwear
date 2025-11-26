@@ -1,3 +1,19 @@
+#' Create an activity type chart
+#'
+#' Creates a visualization of activity types over time from wearable data. The chart can display
+#' activities either as merged horizontal bars per day or as individual activity segments with
+#' transitions.
+#'
+#' @inheritParams discrete_chart
+#' @param merged_bars Logical. If `TRUE` (default), activities are shown as a single row per day.
+#'   If `FALSE`, activities are shown with vertical transitions between states.
+#'
+#' @return A [ggplot2::ggplot] object displaying activity types over time.
+#'
+#' @seealso [activity_intensity_chart()] for activity intensity levels, [steps_chart()] for
+#'   step counts
+#'
+#' @export
 activity_chart <- function(
   .data,
   start = "start_time",
@@ -102,6 +118,18 @@ activity_chart <- function(
   p
 }
 
+#' Create an activity intensity chart
+#'
+#' Creates a visualization of activity intensity levels (Sedentary, Low, Medium, High) over time
+#' from wearable data.
+#'
+#' @inheritParams discrete_chart
+#'
+#' @return A [ggplot2::ggplot] object displaying activity intensity levels over time.
+#'
+#' @seealso [activity_chart()] for activity types, [steps_chart()] for step counts
+#'
+#' @export
 activity_intensity_chart <- function(
   .data,
   start = "start_time",
@@ -128,6 +156,19 @@ activity_intensity_chart <- function(
     labs(y = "Activity intensity")
 }
 
+#' Create a step count chart
+#'
+#' Creates a visualization of cumulative step counts over time from wearable data. The chart
+#' displays steps as a line graph with the cumulative count building up throughout each day.
+#'
+#' @inheritParams continuous_chart
+#'
+#' @return A [ggplot2::ggplot] object displaying cumulative step counts faceted by date.
+#'
+#' @seealso [activity_chart()] for activity types, [activity_intensity_chart()] for intensity
+#'   levels
+#'
+#' @export
 steps_chart <- function(
   .data,
   start = "start_time",

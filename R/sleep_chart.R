@@ -1,3 +1,17 @@
+#' Create a sleep stages chart
+#'
+#' Creates a visualization of sleep stages (Awake, REM, Light, Deep) over time from wearable
+#' data. The chart shows sleep stage transitions throughout each night.
+#'
+#' @inheritParams .sleep_prep
+#' @param add_bed_time Logical. If `TRUE` (default), adds dotted vertical lines and labels
+#'   showing bedtime and wake time.
+#'
+#' @return A [ggplot2::ggplot] object displaying sleep stages faceted by night.
+#'
+#' @seealso [sleep_duration()], [sleep_efficiency()], [sleep_score()] for sleep metrics
+#'
+#' @export
 sleep_chart <- function(
   .data,
   start = "start_time",
@@ -156,6 +170,22 @@ sleep_chart <- function(
 }
 
 
+#' Prepare sleep data for analysis
+#'
+#' Internal helper function that filters and prepares sleep data for duration and metric
+#' calculations.
+#'
+#' @param .data A data frame containing the wearable data, typically from [clean_dynamic_data()].
+#' @param vars A character vector of sleep-related variable types to filter for.
+#' @param start The name of the column containing start timestamps. Defaults to `"start_time"`.
+#' @param end The name of the column containing end timestamps. Defaults to `"end_time"`.
+#' @param variable The name of the column containing variable names. Defaults to `"variable"`.
+#' @param tz_offset The name of the column containing timezone offsets. Defaults to `"tz_offset"`.
+#'
+#' @return A data frame with filtered sleep data and an added `day` column representing the
+#'   sleep night.
+#'
+#' @keywords internal
 .sleep_prep <- function(
   .data,
   vars,
@@ -200,7 +230,18 @@ sleep_chart <- function(
 }
 
 
-# Daily variable SleepAwakeDuration based on intraday data
+#' Calculate total awake duration during sleep
+#'
+#' Calculates the total time spent awake during sleep periods for each night from intraday
+#' wearable data.
+#'
+#' @inheritParams .sleep_prep
+#'
+#' @return A data frame with columns for `day` and `SleepAwakeDuration` (in seconds).
+#'
+#' @seealso [sleep_duration()], [sleep_efficiency()], [sleep_chart()]
+#'
+#' @export
 sleep_awake_duration <- function(
   .data,
   start = "start_time",
@@ -233,7 +274,17 @@ sleep_awake_duration <- function(
   .data
 }
 
-# Daily variable SleepREMDuration based on intraday data
+#' Calculate total REM sleep duration
+#'
+#' Calculates the total time spent in REM sleep for each night from intraday wearable data.
+#'
+#' @inheritParams .sleep_prep
+#'
+#' @return A data frame with columns for `day` and `SleepREMDuration` (in seconds).
+#'
+#' @seealso [sleep_deep_duration()], [sleep_duration()], [sleep_chart()]
+#'
+#' @export
 sleep_rem_duration <- function(
   .data,
   start = "start_time",
@@ -266,7 +317,17 @@ sleep_rem_duration <- function(
   .data
 }
 
-# Daily variable SleepDeepDuration based on intraday data
+#' Calculate total deep sleep duration
+#'
+#' Calculates the total time spent in deep sleep for each night from intraday wearable data.
+#'
+#' @inheritParams .sleep_prep
+#'
+#' @return A data frame with columns for `day` and `SleepDeepDuration` (in seconds).
+#'
+#' @seealso [sleep_rem_duration()], [sleep_duration()], [sleep_chart()]
+#'
+#' @export
 sleep_deep_duration <- function(
   .data,
   start = "start_time",
@@ -299,7 +360,18 @@ sleep_deep_duration <- function(
   .data
 }
 
-# Refers to the duration spent in bed trying to sleep regardless of sleeping or awake phases.
+#' Calculate time spent in bed
+#'
+#' Calculates the total duration spent in bed (from first to last sleep-related measurement)
+#' for each night, regardless of whether the person was asleep or awake.
+#'
+#' @inheritParams .sleep_prep
+#'
+#' @return A data frame with columns for `day` and `SleepInBedDuration` (in seconds).
+#'
+#' @seealso [sleep_duration()], [sleep_efficiency()], [sleep_chart()]
+#'
+#' @export
 sleep_in_bed_duration <- function(
   .data,
   start = "start_time",
@@ -347,7 +419,18 @@ sleep_in_bed_duration <- function(
   .data
 }
 
-# Total sleep duration, without being awake
+#' Calculate total sleep duration
+#'
+#' Calculates the total time spent asleep (excluding awake periods) for each night from
+#' intraday wearable data. This includes light, REM, and deep sleep stages.
+#'
+#' @inheritParams .sleep_prep
+#'
+#' @return A data frame with columns for `day` and `SleepDuration` (in seconds).
+#'
+#' @seealso [sleep_efficiency()], [sleep_score()], [sleep_chart()]
+#'
+#' @export
 sleep_duration <- function(
   .data,
   start = "start_time",
@@ -392,7 +475,18 @@ sleep_duration <- function(
   .data
 }
 
-# First SleepInBeDuration until the first SleepAwakeBinary
+#' Calculate sleep onset latency
+#'
+#' Calculates the time between getting into bed and falling asleep for each night.
+#' This is the duration from the first `SleepInBedBinary` to the first `SleepStateBinary`.
+#'
+#' @inheritParams .sleep_prep
+#'
+#' @return A data frame with columns for `day` and `SleepOnSetLatency` (in seconds).
+#'
+#' @seealso [sleep_efficiency()], [sleep_score()], [sleep_chart()]
+#'
+#' @export
 sleep_onset_latency <- function(
   .data,
   start = "start_time",
@@ -436,6 +530,19 @@ sleep_onset_latency <- function(
   .data
 }
 
+#' Calculate sleep efficiency
+#'
+#' Calculates sleep efficiency as the ratio of actual sleep time to time spent in bed.
+#' Sleep efficiency is computed as `(SleepInBedDuration - SleepAwakeDuration) / SleepInBedDuration`.
+#'
+#' @inheritParams .sleep_prep
+#'
+#' @return A data frame with columns for `day` and `SleepEfficiency` (as a proportion between
+#'   0 and 1).
+#'
+#' @seealso [sleep_duration()], [sleep_score()], [sleep_chart()]
+#'
+#' @export
 sleep_efficiency <- function(
   .data,
   start = "start_time",
@@ -476,11 +583,25 @@ sleep_efficiency <- function(
 }
 
 
-# Established Indicator describing the likelihood that any two time-points 24 hours apart were the
-# same sleep/wake state, across all days.
-# Well-established indicator, describing the longterm likelihood of being asleep at the same time as
-# in the previous day. Values below 60% are associated with a significantly higher likelihood for
-# Alzheimer disease, depression and cardiovascular diseases.
+#' Calculate sleep regularity index
+#'
+#' Calculates the Sleep Regularity Index (SRI), which describes the likelihood that any two
+#' time-points 24 hours apart were in the same sleep/wake state across all days. This is a
+#' well-established indicator of sleep consistency.
+#'
+#' Values below 60% are associated with a significantly higher likelihood for Alzheimer's
+#' disease, depression, and cardiovascular diseases.
+#'
+#' @inheritParams .sleep_prep
+#'
+#' @return A data frame with the `sleep_regularity` score (ranging from -100 to 100, where
+#'   100 indicates perfect regularity).
+#'
+#' @note This function requires the `mpathsenser` package to be installed.
+#'
+#' @seealso [sleep_score()], [sleep_chart()]
+#'
+#' @export
 sleep_regularity <- function(
   .data,
   start = "start_time",
@@ -565,9 +686,28 @@ sleep_regularity <- function(
   .data
 }
 
-# Based on Arora, A., Chakraborty, P., & Bhatia, M. P. S. (2020). Analysis of Data from Wearable
-# Sensors for Sleep Quality Estimation and Prediction Using Deep Learning. Arabian Journal for
-# Science and Engineering, 45(12), 10793–10812. https://doi.org/10.1007/s13369-020-04877-w
+#' Calculate composite sleep score
+#'
+#' Calculates a composite sleep quality score based on multiple sleep metrics including onset
+#' latency, duration, efficiency, awake time, and proportions of deep and REM sleep.
+#'
+#' The scoring is based on Arora, A., Chakraborty, P., & Bhatia, M. P. S. (2020). Analysis of
+#' Data from Wearable Sensors for Sleep Quality Estimation and Prediction Using Deep Learning.
+#' Arabian Journal for Science and Engineering, 45(12), 10793-10812.
+#'
+#' @inheritParams .sleep_prep
+#'
+#' @return A data frame with columns for `day` and `sleep_score`. Lower scores indicate better
+#'   sleep quality.
+#'
+#' @references
+#' Arora, A., Chakraborty, P., & Bhatia, M. P. S. (2020). Analysis of Data from Wearable
+#' Sensors for Sleep Quality Estimation and Prediction Using Deep Learning. Arabian Journal
+#' for Science and Engineering, 45(12), 10793-10812. \doi{10.1007/s13369-020-04877-w}
+#'
+#' @seealso [sleep_duration()], [sleep_efficiency()], [sleep_chart()]
+#'
+#' @export
 sleep_score <- function(
   .data,
   start = "start_time",

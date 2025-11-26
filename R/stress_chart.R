@@ -1,3 +1,17 @@
+#' Create a stress level chart
+#'
+#' Creates a visualization of continuous stress level measurements over time from wearable data.
+#' Stress values are shown on a scale of 0 to 100.
+#'
+#' @inheritParams continuous_chart
+#' @param add_average Logical. If `TRUE` (default), adds a dashed horizontal line showing the
+#'   daily average stress level.
+#'
+#' @return A [ggplot2::ggplot] object displaying stress levels faceted by date.
+#'
+#' @seealso [stress_chart_discrete()] for discrete stress states
+#'
+#' @export
 stress_chart <- function(
   .data,
   start = "start_time",
@@ -39,6 +53,18 @@ stress_chart <- function(
   p
 }
 
+#' Create a discrete stress state chart
+#'
+#' Creates a visualization of discrete stress states (Low, Medium, High) over time from
+#' wearable data.
+#'
+#' @inheritParams discrete_chart
+#'
+#' @return A [ggplot2::ggplot] object displaying discrete stress states faceted by day.
+#'
+#' @seealso [stress_chart()] for continuous stress levels
+#'
+#' @export
 stress_chart_discrete <- function(
   .data,
   start = "start_time",

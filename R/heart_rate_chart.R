@@ -1,3 +1,17 @@
+#' Create a heart rate chart
+#'
+#' Creates a visualization of heart rate measurements over time from wearable data.
+#' The chart displays heart rate values with optional daily average lines.
+#'
+#' @inheritParams continuous_chart
+#' @param add_average Logical. If `TRUE` (default), adds a dashed horizontal line showing the
+#'   daily average heart rate.
+#'
+#' @return A [ggplot2::ggplot] object displaying heart rate measurements faceted by date.
+#'
+#' @seealso [hrv_chart()] for heart rate variability
+#'
+#' @export
 heart_rate_chart <- function(
   .data,
   start = "start_time",
@@ -48,6 +62,20 @@ heart_rate_chart <- function(
   p
 }
 
+#' Create a heart rate variability (HRV) chart
+#'
+#' Creates a visualization of heart rate variability measurements over time from wearable data.
+#' HRV metrics include RMSSD, SDNN, and SDRR.
+#'
+#' @inheritParams continuous_chart
+#' @param add_average Logical. If `TRUE` (default), adds a dashed horizontal line showing the
+#'   daily average HRV.
+#'
+#' @return A [ggplot2::ggplot] object displaying HRV measurements faceted by date.
+#'
+#' @seealso [heart_rate_chart()] for heart rate measurements
+#'
+#' @export
 hrv_chart <- function(
   .data,
   start = "start_time",
