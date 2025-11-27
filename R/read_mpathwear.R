@@ -28,6 +28,13 @@
 #'
 #' @export
 #' @seealso [clean_dynamic_data()] and [clean_daily_data()] for unpacking the dynamic and daily data.
+#'
+#' @examples
+#' # Your path to the data, or in this case the package example data.
+#' # Note that this can also be a folder containing several files.
+#' path <- system.file("extdata", "example.csv", package = "mpathwear")
+#'
+#' read_mpathwear(path)
 read_mpathwear <- function(path, recursive = FALSE) {
   # Is the specified path a file or directory?
   if (file.info(path, extra_cols = FALSE)$isdir) {
@@ -159,6 +166,16 @@ read_mpathwear <- function(path, recursive = FALSE) {
 }
 
 read_mpathwear_file <- function(file) {
+  # Do NOT use the column names when reading in the data or you might risk this error:
+  #   Error: The size of the connection buffer (131072) was not large enough
+  #   to fit a complete line:
+  #     * Increase it by setting `Sys.setenv("VROOM_CONNECTION_SIZE")`
+  #
+  # This is caused by the skip = 1 argument we have to use because we provide the column names.
+  # Because of this, vroom has to fit the skipped data and the next 2 lines in its buffer:
+  # https://github.com/tidyverse/vroom/issues/364#issuecomment-900287167
+  # However, because the dynamicData and dailyData columns can be very large, this buffer is not
+  # sufficient and needs to be increased, but we cannot set beforehand how big it should be.
   cols <- c(
     connectionId = "c",
     legacyCode = "c",
@@ -166,8 +183,6 @@ read_mpathwear_file <- function(file) {
     alias = "c",
     initials = "c",
     accountCode = "c",
-    # startUTS = "i",
-    # stopUTS = "i",
     lastCreatedAtUnix = "d",
     dynamicData = "c",
     dailyData = "c"
@@ -176,9 +191,9 @@ read_mpathwear_file <- function(file) {
   data <- suppressWarnings(readr::read_delim(
     file,
     delim = ";",
-    col_names = names(cols),
+    # col_names = names(cols),
     col_types = paste0(cols, collapse = ""),
-    skip = 1, # Due to providing the column names
+    # skip = 1, # Due to providing the column names
     locale = .mpath_locale,
     na = "",
     progress = FALSE,

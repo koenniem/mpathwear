@@ -84,7 +84,7 @@ continuous_chart <- function(
       data = min_max_times
     ) +
     scale_color_viridis_c(
-      name = .data$type,
+      name = type,
       option = "plasma",
       direction = -1
     ) +
@@ -153,7 +153,7 @@ discrete_chart <- function(
           "There was no data in ",
           variable,
           " for the following variables types: ",
-          paste("'", types, "'", collapse = ", ")
+          paste0("'", types, "'", collapse = ", ")
         )
       ),
       call = .call

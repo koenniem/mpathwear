@@ -135,12 +135,14 @@ sleep_chart <- function(
 
   p <- p +
     geom_vline(
-      xintercept = start_sleep$start,
+      data = start_sleep,
+      aes(xintercept = .data$start),
       colour = "black",
       linetype = "dotted"
     ) +
     geom_vline(
-      xintercept = end_sleep$end,
+      data = end_sleep,
+      aes(xintercept = .data$end),
       colour = "black",
       linetype = "dotted"
     ) +
@@ -152,7 +154,7 @@ sleep_chart <- function(
         label = format(start, "%H:%M")
       ),
       alpha = 0.6,
-      nudge_y = 0.3,
+      nudge_y = 0.1,
       nudge_x = 200,
       hjust = 0,
       vjust = 0,
@@ -166,7 +168,7 @@ sleep_chart <- function(
         label = format(end, "%H:%M")
       ),
       alpha = 0.6,
-      nudge_y = 0.3,
+      nudge_y = 0.1,
       nudge_x = -300,
       hjust = 1,
       vjust = 0,
@@ -342,6 +344,60 @@ sleep_rem_duration <- function(
       .groups = "drop_last"
     ) |>
     mutate(SleepREMDuration = as.integer(.data$SleepREMDuration))
+
+  .data
+}
+
+#' Calculate total light sleep duration
+#'
+#' Calculates the total time spent in light sleep for each night from intraday wearable data.
+#'
+#' @inheritParams .sleep_prep
+#'
+#' @return A data frame with columns for `day` and `SleepLightDuration` (in seconds).
+#'
+#' @seealso [sleep_deep_duration()], [sleep_duration()], [sleep_chart()]
+#'
+#' @export
+#'
+#' @examples
+#' #' # Calculate the total light sleep duration during sleep from
+#' # intraday (dynamic) data.
+#' sleep_light_duration(dynamic_data)
+#'
+#' # We can compare this to the light sleep duration from the
+#' # daily data.
+#' # Note that in the daily data, the sleep light duration is shown
+#' # in minutes instead of seconds.
+#' daily_data[daily_data$variable == "SleepLightDuration", c("day", "value")]
+sleep_light_duration <- function(
+  .data,
+  start = "start_time",
+  end = "end_time",
+  variable = "variable",
+  tz_offset = "tz_offset"
+) {
+  start <- rlang::ensym(start)
+  end <- rlang::ensym(end)
+  variable <- rlang::ensym(variable)
+
+  .data <- .sleep_prep(
+    .data,
+    vars = "SleepLightBinary",
+    start = start,
+    end = end,
+    variable = variable,
+    tz_offset = tz_offset
+  )
+
+  # Calculate the total wake duration per day
+  .data <- .data |>
+    group_by(day, .add = TRUE) |>
+    summarise(
+      SleepLightDuration = sum(difftime(!!end, !!start, units = "secs")),
+      .groups = "drop_last"
+    ) |>
+    mutate(SleepLightDuration = as.integer(.data$SleepLightDuration))
 
   .data
 }
@@ -762,11 +818,19 @@ sleep_regularity <- function(
     summarise(sum_agreement = sum(.data$agreement, na.rm = TRUE), .groups = "keep")
 
   # Merge with the number of epochs and calculate the sleep regularity score
+  if (dplyr::is_grouped_df(.data)) {
+    .data <- left_join(
+      .data,
+      n_epochs,
+      by = intersect(colnames(.data), colnames(n_epochs))
+    )
+  } else {
+    .data <- bind_cols(.data, n_epochs)
+  }
+
   .data <- .data |>
-    left_join(n_epochs) |>
     mutate(sleep_regularity = -100 + (200 / .data$n * .data$sum_agreement)) |>
-    select(-c("sum_agreement", "n")) |>
-    suppressMessages()
+    select(-c("sum_agreement", "n"))
 
   .data
 }
@@ -776,23 +840,24 @@ sleep_regularity <- function(
 #' Calculates a composite sleep quality score based on multiple sleep metrics including onset
 #' latency, duration, efficiency, awake time, and proportions of deep and REM sleep.
 #'
-#' The scoring is based on Arora, A., Chakraborty, P., & Bhatia, M. P. S. (2020). Analysis of
-#' Data from Wearable Sensors for Sleep Quality Estimation and Prediction Using Deep Learning.
-#' Arabian Journal for Science and Engineering, 45(12), 10793-10812.
+#' The scoring is based on Arora et al. (2020). The calculated sleep quality scores ranges from 0 to
+#' 14, where a lower scores denotes better sleep quality.
 #'
 #' @inheritParams .sleep_prep
 #'
-#' @return A data frame with columns for `day` and `sleep_score`. Lower scores indicate better
-#'   sleep quality.
+#' @return A data frame with columns for `day` and `sleep_score`. Lower scores indicate better sleep
+#'   quality.
 #'
-#' @references
-#' Arora, A., Chakraborty, P., & Bhatia, M. P. S. (2020). Analysis of Data from Wearable
-#' Sensors for Sleep Quality Estimation and Prediction Using Deep Learning. Arabian Journal
-#' for Science and Engineering, 45(12), 10793-10812. \doi{10.1007/s13369-020-04877-w}
+#' @references Arora, A., Chakraborty, P., & Bhatia, M. P. S. (2020). Analysis of Data from Wearable
+#'   Sensors for Sleep Quality Estimation and Prediction Using Deep Learning. Arabian Journal for
+#'   Science and Engineering, 45(12), 10793-10812. \doi{10.1007/s13369-020-04877-w}
 #'
 #' @seealso [sleep_duration()], [sleep_efficiency()], [sleep_chart()]
 #'
 #' @export
+#'
+#' @examples
+#' sleep_score(dynamic_data)
 sleep_score <- function(
   .data,
   start = "start_time",
