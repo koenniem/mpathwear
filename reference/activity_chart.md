@@ -66,3 +66,14 @@ object displaying activity types over time.
 for activity intensity levels,
 [`steps_chart()`](https://koenniem.github.io/mpathwear/reference/steps_chart.md)
 for step counts
+
+## Examples
+
+``` r
+# Show a single timeline
+activity_chart(dynamic_data)
+
+
+# Display activities with transitions
+activity_chart(dynamic_data, merged_bars = FALSE)
+```

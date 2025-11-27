@@ -62,3 +62,13 @@ This function requires the `mpathsenser` package to be installed.
 
 [`sleep_score()`](https://koenniem.github.io/mpathwear/reference/sleep_score.md),
 [`sleep_chart()`](https://koenniem.github.io/mpathwear/reference/sleep_chart.md)
+
+## Examples
+
+``` r
+sleep_regularity(dynamic_data)
+#> # A tibble: 1 × 1
+#>   sleep_regularity
+#>              <dbl>
+#> 1             67.4
+```

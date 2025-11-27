@@ -62,3 +62,13 @@ object displaying HRV measurements faceted by date.
 
 [`heart_rate_chart()`](https://koenniem.github.io/mpathwear/reference/heart_rate_chart.md)
 for heart rate measurements
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+# HRV is not available in the example data,
+# but this is how you would call the function:
+hrv_chart(dynamic_data)
+} # }
+```

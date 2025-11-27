@@ -51,3 +51,20 @@ these are part of the default m-Path data output.
 and
 [`clean_daily_data()`](https://koenniem.github.io/mpathwear/reference/clean_daily_data.md)
 for unpacking the dynamic and daily data.
+
+## Examples
+
+``` r
+# Your path to the data, or in this case the package example data.
+# Note that this can also be a folder containing several files.
+path <- system.file("extdata", "example.csv", package = "mpathwear")
+
+read_mpathwear(path)
+#> # A tibble: 3 × 9
+#>   connectionId legacyCode  code     alias initials accountCode lastCreatedAtUnix
+#>   <chr>        <chr>       <chr>    <chr> <chr>    <chr>                   <dbl>
+#> 1 123456       !1234@abc12 !abcd e… exam… exa      abc12           1764164955448
+#> 2 123456       !1234@abc12 !abcd e… exam… exa      abc12           1764165350362
+#> 3 123456       !1234@abc12 !abcd e… exam… exa      abc12           1764166043493
+#> # ℹ 2 more variables: dynamicData <list>, dailyData <list>
+```

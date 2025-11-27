@@ -47,3 +47,9 @@ by variable type.
 
 [`coverage_chart()`](https://koenniem.github.io/mpathwear/reference/coverage_chart.md)
 for intraday coverage
+
+## Examples
+
+``` r
+daily_coverage_chart(daily_data)
+```

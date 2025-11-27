@@ -1,8 +1,9 @@
 pandoc: 3.1.11
 pkgdown: 2.2.0
 pkgdown_sha: ~
-articles: {}
-last_built: 2025-11-26T14:43Z
+articles:
+  get-started: get-started.html
+last_built: 2025-11-27T16:32Z
 urls:
   reference: https://koenniem.github.io/mpathwear/reference
   article: https://koenniem.github.io/mpathwear/articles

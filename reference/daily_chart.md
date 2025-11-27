@@ -1,8 +1,8 @@
 # Create a daily summary chart
 
 Creates a line chart visualization of daily summary wearable data
-metrics over time. Each variable is displayed in its own facet with
-points connected by lines.
+metrics over time for a single participant. Each variable is displayed
+in its own facet with points connected by lines.
 
 ## Usage
 

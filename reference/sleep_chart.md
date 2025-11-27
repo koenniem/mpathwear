@@ -60,3 +60,14 @@ object displaying sleep stages faceted by night.
 [`sleep_efficiency()`](https://koenniem.github.io/mpathwear/reference/sleep_efficiency.md),
 [`sleep_score()`](https://koenniem.github.io/mpathwear/reference/sleep_score.md)
 for sleep metrics
+
+## Examples
+
+``` r
+# Show the sleep chart of a single participant
+sleep_chart(dynamic_data)
+
+
+# Optionally, show the sleep chart without bed and wakeup times
+sleep_chart(dynamic_data, add_bed_time = FALSE)
+```

@@ -58,3 +58,13 @@ object displaying activity intensity levels over time.
 for activity types,
 [`steps_chart()`](https://koenniem.github.io/mpathwear/reference/steps_chart.md)
 for step counts
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+# Activity intensity are not available in the example data,
+# but this is how you would show them:
+activity_intensity_chart(dynamic_data)
+} # }
+```

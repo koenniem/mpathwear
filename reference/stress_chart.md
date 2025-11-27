@@ -62,3 +62,11 @@ object displaying stress levels faceted by date.
 
 [`stress_chart_discrete()`](https://koenniem.github.io/mpathwear/reference/stress_chart_discrete.md)
 for discrete stress states
+
+## Examples
+
+``` r
+stress_chart(dynamic_data)
+#> Warning: Removed 1 row containing missing values or values outside the scale range
+#> (`geom_segment()`).
+```

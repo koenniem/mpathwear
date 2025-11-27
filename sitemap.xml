@@ -3,6 +3,8 @@
 <url><loc>https://koenniem.github.io/mpathwear/CODE_OF_CONDUCT.html</loc></url>
 <url><loc>https://koenniem.github.io/mpathwear/CONTRIBUTING.html</loc></url>
 <url><loc>https://koenniem.github.io/mpathwear/LICENSE.html</loc></url>
+<url><loc>https://koenniem.github.io/mpathwear/articles/get-started.html</loc></url>
+<url><loc>https://koenniem.github.io/mpathwear/articles/index.html</loc></url>
 <url><loc>https://koenniem.github.io/mpathwear/authors.html</loc></url>
 <url><loc>https://koenniem.github.io/mpathwear/index.html</loc></url>
 <url><loc>https://koenniem.github.io/mpathwear/news/index.html</loc></url>
@@ -16,10 +18,12 @@
 <url><loc>https://koenniem.github.io/mpathwear/reference/coverage_chart.html</loc></url>
 <url><loc>https://koenniem.github.io/mpathwear/reference/daily_chart.html</loc></url>
 <url><loc>https://koenniem.github.io/mpathwear/reference/daily_coverage_chart.html</loc></url>
+<url><loc>https://koenniem.github.io/mpathwear/reference/daily_data.html</loc></url>
 <url><loc>https://koenniem.github.io/mpathwear/reference/data_sources.html</loc></url>
 <url><loc>https://koenniem.github.io/mpathwear/reference/discrete_chart.html</loc></url>
 <url><loc>https://koenniem.github.io/mpathwear/reference/dot-mpath_locale.html</loc></url>
 <url><loc>https://koenniem.github.io/mpathwear/reference/dot-sleep_prep.html</loc></url>
+<url><loc>https://koenniem.github.io/mpathwear/reference/dynamic_data.html</loc></url>
 <url><loc>https://koenniem.github.io/mpathwear/reference/heart_rate_chart.html</loc></url>
 <url><loc>https://koenniem.github.io/mpathwear/reference/hrv_chart.html</loc></url>
 <url><loc>https://koenniem.github.io/mpathwear/reference/index.html</loc></url>
@@ -32,6 +36,7 @@
 <url><loc>https://koenniem.github.io/mpathwear/reference/sleep_duration.html</loc></url>
 <url><loc>https://koenniem.github.io/mpathwear/reference/sleep_efficiency.html</loc></url>
 <url><loc>https://koenniem.github.io/mpathwear/reference/sleep_in_bed_duration.html</loc></url>
+<url><loc>https://koenniem.github.io/mpathwear/reference/sleep_light_duration.html</loc></url>
 <url><loc>https://koenniem.github.io/mpathwear/reference/sleep_onset_latency.html</loc></url>
 <url><loc>https://koenniem.github.io/mpathwear/reference/sleep_regularity.html</loc></url>
 <url><loc>https://koenniem.github.io/mpathwear/reference/sleep_rem_duration.html</loc></url>

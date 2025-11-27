@@ -51,3 +51,11 @@ respiration_chart(
 
 A [ggplot2::ggplot](https://ggplot2.tidyverse.org/reference/ggplot.html)
 object displaying respiration rate measurements faceted by date.
+
+## Examples
+
+``` r
+respiration_chart(dynamic_data)
+#> Warning: Removed 1 row containing missing values or values outside the scale range
+#> (`geom_segment()`).
+```

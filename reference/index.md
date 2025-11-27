@@ -48,6 +48,8 @@
   : Calculate sleep efficiency
 - [`sleep_in_bed_duration()`](https://koenniem.github.io/mpathwear/reference/sleep_in_bed_duration.md)
   : Calculate time spent in bed
+- [`sleep_light_duration()`](https://koenniem.github.io/mpathwear/reference/sleep_light_duration.md)
+  : Calculate total light sleep duration
 - [`sleep_onset_latency()`](https://koenniem.github.io/mpathwear/reference/sleep_onset_latency.md)
   : Calculate sleep onset latency
 - [`sleep_regularity()`](https://koenniem.github.io/mpathwear/reference/sleep_regularity.md)
@@ -65,5 +67,9 @@
   : Codes for Activity Types
 - [`codebook`](https://koenniem.github.io/mpathwear/reference/codebook.md)
   : Overview of Thryve measurement codes and descriptions
+- [`daily_data`](https://koenniem.github.io/mpathwear/reference/daily_data.md)
+  : Example dataset of daily measurements
 - [`data_sources`](https://koenniem.github.io/mpathwear/reference/data_sources.md)
   : Overview of supported Thryve data sources and data retrieval periods
+- [`dynamic_data`](https://koenniem.github.io/mpathwear/reference/dynamic_data.md)
+  : Example dataset of intradaily (i.e. dynamic) measurements

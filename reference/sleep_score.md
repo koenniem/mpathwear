@@ -50,10 +50,9 @@ indicate better sleep quality.
 
 ## Details
 
-The scoring is based on Arora, A., Chakraborty, P., & Bhatia, M. P. S.
-(2020). Analysis of Data from Wearable Sensors for Sleep Quality
-Estimation and Prediction Using Deep Learning. Arabian Journal for
-Science and Engineering, 45(12), 10793-10812.
+The scoring is based on Arora et al. (2020). The calculated sleep
+quality scores ranges from 0 to 14, where a lower scores denotes better
+sleep quality.
 
 ## References
 
@@ -68,3 +67,27 @@ Deep Learning. Arabian Journal for Science and Engineering, 45(12),
 [`sleep_duration()`](https://koenniem.github.io/mpathwear/reference/sleep_duration.md),
 [`sleep_efficiency()`](https://koenniem.github.io/mpathwear/reference/sleep_efficiency.md),
 [`sleep_chart()`](https://koenniem.github.io/mpathwear/reference/sleep_chart.md)
+
+## Examples
+
+``` r
+sleep_score(dynamic_data)
+#> # A tibble: 15 × 2
+#>    day        sleep_score
+#>    <date>           <dbl>
+#>  1 2025-11-12           2
+#>  2 2025-11-13           1
+#>  3 2025-11-14           2
+#>  4 2025-11-15           4
+#>  5 2025-11-16           1
+#>  6 2025-11-17           2
+#>  7 2025-11-18           4
+#>  8 2025-11-19           4
+#>  9 2025-11-20           4
+#> 10 2025-11-21           2
+#> 11 2025-11-22           5
+#> 12 2025-11-23           4
+#> 13 2025-11-24           4
+#> 14 2025-11-25           3
+#> 15 2025-11-26           5
+```

@@ -59,3 +59,41 @@ object displaying cumulative step counts faceted by date.
 for activity types,
 [`activity_intensity_chart()`](https://koenniem.github.io/mpathwear/reference/activity_intensity_chart.md)
 for intensity levels
+
+## Examples
+
+``` r
+steps_chart(dynamic_data)
+#> Warning: Removed 1 row containing missing values or values outside the scale range
+#> (`geom_segment()`).
+#> Warning: Removed 1 row containing missing values or values outside the scale range
+#> (`geom_segment()`).
+#> Warning: Removed 1 row containing missing values or values outside the scale range
+#> (`geom_segment()`).
+#> Warning: Removed 1 row containing missing values or values outside the scale range
+#> (`geom_segment()`).
+#> Warning: Removed 1 row containing missing values or values outside the scale range
+#> (`geom_segment()`).
+#> Warning: Removed 1 row containing missing values or values outside the scale range
+#> (`geom_segment()`).
+#> Warning: Removed 1 row containing missing values or values outside the scale range
+#> (`geom_segment()`).
+#> Warning: Removed 1 row containing missing values or values outside the scale range
+#> (`geom_segment()`).
+#> Warning: Removed 1 row containing missing values or values outside the scale range
+#> (`geom_segment()`).
+#> Warning: Removed 1 row containing missing values or values outside the scale range
+#> (`geom_segment()`).
+#> Warning: Removed 1 row containing missing values or values outside the scale range
+#> (`geom_segment()`).
+#> Warning: Removed 1 row containing missing values or values outside the scale range
+#> (`geom_segment()`).
+#> Warning: Removed 1 row containing missing values or values outside the scale range
+#> (`geom_segment()`).
+#> Warning: Removed 1 row containing missing values or values outside the scale range
+#> (`geom_segment()`).
+#> Warning: Removed 1 row containing missing values or values outside the scale range
+#> (`geom_segment()`).
+#> Warning: Removed 15 rows containing missing values or values outside the scale range
+#> (`geom_segment()`).
+```

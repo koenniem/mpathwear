@@ -63,3 +63,11 @@ object displaying heart rate measurements faceted by date.
 
 [`hrv_chart()`](https://koenniem.github.io/mpathwear/reference/hrv_chart.md)
 for heart rate variability
+
+## Examples
+
+``` r
+heart_rate_chart(dynamic_data)
+#> Warning: Removed 1 row containing missing values or values outside the scale range
+#> (`geom_segment()`).
+```

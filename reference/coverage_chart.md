@@ -59,3 +59,9 @@ faceted by variable type.
 
 [`daily_coverage_chart()`](https://koenniem.github.io/mpathwear/reference/daily_coverage_chart.md)
 for daily-level coverage
+
+## Examples
+
+``` r
+coverage_chart(dynamic_data)
+```

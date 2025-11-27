@@ -56,3 +56,9 @@ object displaying discrete stress states faceted by day.
 
 [`stress_chart()`](https://koenniem.github.io/mpathwear/reference/stress_chart.md)
 for continuous stress levels
+
+## Examples
+
+``` r
+stress_chart_discrete(dynamic_data)
+```
