@@ -12,6 +12,13 @@
 #' @seealso [sleep_duration()], [sleep_efficiency()], [sleep_score()] for sleep metrics
 #'
 #' @export
+#'
+#' @examples
+#' # Show the sleep chart of a single participant
+#' sleep_chart(dynamic_data)
+#'
+#' # Optionally, show the sleep chart without bed and wakeup times
+#' sleep_chart(dynamic_data, add_bed_time = FALSE)
 sleep_chart <- function(
   .data,
   start = "start_time",
@@ -242,6 +249,17 @@ sleep_chart <- function(
 #' @seealso [sleep_duration()], [sleep_efficiency()], [sleep_chart()]
 #'
 #' @export
+#'
+#' @examples
+#' # Calculate the total awake duration during sleep from
+#' # intraday (dynamic) data.
+#' sleep_awake_duration(dynamic_data)
+#'
+#' # We can compare this to the awake duration from the
+#' # daily data.
+#' # Note that in the daily data, the awake duration is shown
+#' # in minutes instead of seconds.
+#' daily_data[daily_data$variable == "SleepAwakeDuration", c("day", "value")]
 sleep_awake_duration <- function(
   .data,
   start = "start_time",
@@ -285,6 +303,17 @@ sleep_awake_duration <- function(
 #' @seealso [sleep_deep_duration()], [sleep_duration()], [sleep_chart()]
 #'
 #' @export
+#'
+#' @examples
+#' #' # Calculate the total REM duration during sleep from
+#' # intraday (dynamic) data.
+#' sleep_rem_duration(dynamic_data)
+#'
+#' # We can compare this to the REM duration from the
+#' # daily data.
+#' # Note that in the daily data, the REM duration is shown
+#' # in minutes instead of seconds.
+#' daily_data[daily_data$variable == "SleepREMDuration", c("day", "value")]
 sleep_rem_duration <- function(
   .data,
   start = "start_time",
@@ -328,6 +357,17 @@ sleep_rem_duration <- function(
 #' @seealso [sleep_rem_duration()], [sleep_duration()], [sleep_chart()]
 #'
 #' @export
+#'
+#' @examples
+#' # Calculate the total deep sleep duration from
+#' # intraday (dynamic) data.
+#' sleep_deep_duration(dynamic_data)
+#'
+#' # We can compare this to the deep sleep duration from the
+#' # daily data.
+#' # Note that in the daily data, the deep sleep duration is shown
+#' # in minutes instead of seconds.
+#' daily_data[daily_data$variable == "SleepDeepDuration", c("day", "value")]
 sleep_deep_duration <- function(
   .data,
   start = "start_time",
@@ -372,6 +412,17 @@ sleep_deep_duration <- function(
 #' @seealso [sleep_duration()], [sleep_efficiency()], [sleep_chart()]
 #'
 #' @export
+#'
+#' @examples
+#' # Calculate the total sleep in bed duration
+#' # from intraday (dynamic) data.
+#' sleep_in_bed_duration(dynamic_data)
+#'
+#' # We can compare this to the sleep in bed duration from the
+#' # daily data.
+#' # Note that in the daily data, the sleep in bed duration
+#' # is shown in minutes instead of seconds.
+#' daily_data[daily_data$variable == "SleepInBedDuration", c("day", "value")]
 sleep_in_bed_duration <- function(
   .data,
   start = "start_time",
@@ -431,6 +482,17 @@ sleep_in_bed_duration <- function(
 #' @seealso [sleep_efficiency()], [sleep_score()], [sleep_chart()]
 #'
 #' @export
+#'
+#' @examples
+#' # Calculate the total sleep duration from
+#' # intraday (dynamic) data.
+#' sleep_duration(dynamic_data)
+#'
+#' # We can compare this to the sleep duration from the
+#' # daily data.
+#' # Note that in the daily data, the sleep duration is shown
+#' # in minutes instead of seconds.
+#' daily_data[daily_data$variable == "SleepDuration", c("day", "value")]
 sleep_duration <- function(
   .data,
   start = "start_time",
@@ -487,6 +549,17 @@ sleep_duration <- function(
 #' @seealso [sleep_efficiency()], [sleep_score()], [sleep_chart()]
 #'
 #' @export
+#'
+#' @examples
+#' # Calculate the sleep onset latency from
+#' # intraday (dynamic) data.
+#' sleep_onset_latency(dynamic_data)
+#'
+#' # We can compare this to the sleep onset latency from the
+#' # daily data.
+#' # Note that in the daily data, the sleep onset latency is shown
+#' # in minutes instead of seconds.
+#' daily_data[daily_data$variable == "SleepLatency", c("day", "value")]
 sleep_onset_latency <- function(
   .data,
   start = "start_time",
@@ -543,6 +616,15 @@ sleep_onset_latency <- function(
 #' @seealso [sleep_duration()], [sleep_score()], [sleep_chart()]
 #'
 #' @export
+#'
+#' @examples
+#' # Calculate the total sleep efficiency from
+#' # intraday (dynamic) data.
+#' sleep_efficiency(dynamic_data)
+#'
+#' # We can compare this to the sleep efficiency from the
+#' # daily data.
+#' daily_data[daily_data$variable == "SleepEfficiency", c("day", "value")]
 sleep_efficiency <- function(
   .data,
   start = "start_time",
@@ -602,6 +684,9 @@ sleep_efficiency <- function(
 #' @seealso [sleep_score()], [sleep_chart()]
 #'
 #' @export
+#'
+#' @examples
+#' sleep_regularity(dynamic_data)
 sleep_regularity <- function(
   .data,
   start = "start_time",

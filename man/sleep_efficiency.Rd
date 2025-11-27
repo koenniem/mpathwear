@@ -31,6 +31,15 @@ A data frame with columns for \code{day} and \code{SleepEfficiency} (as a propor
 Calculates sleep efficiency as the ratio of actual sleep time to time spent in bed.
 Sleep efficiency is computed as \code{(SleepInBedDuration - SleepAwakeDuration) / SleepInBedDuration}.
 }
+\examples{
+# Calculate the total sleep efficiency from
+# intraday (dynamic) data.
+sleep_efficiency(dynamic_data)
+
+# We can compare this to the sleep efficiency from the
+# daily data.
+daily_data[daily_data$variable == "SleepEfficiency", c("day", "value")]
+}
 \seealso{
 \code{\link[=sleep_duration]{sleep_duration()}}, \code{\link[=sleep_score]{sleep_score()}}, \code{\link[=sleep_chart]{sleep_chart()}}
 }

@@ -24,22 +24,24 @@ sleep_score(
 \item{tz_offset}{The name of the column containing timezone offsets. Defaults to \code{"tz_offset"}.}
 }
 \value{
-A data frame with columns for \code{day} and \code{sleep_score}. Lower scores indicate better
-sleep quality.
+A data frame with columns for \code{day} and \code{sleep_score}. Lower scores indicate better sleep
+quality.
 }
 \description{
 Calculates a composite sleep quality score based on multiple sleep metrics including onset
 latency, duration, efficiency, awake time, and proportions of deep and REM sleep.
 }
 \details{
-The scoring is based on Arora, A., Chakraborty, P., & Bhatia, M. P. S. (2020). Analysis of
-Data from Wearable Sensors for Sleep Quality Estimation and Prediction Using Deep Learning.
-Arabian Journal for Science and Engineering, 45(12), 10793-10812.
+The scoring is based on Arora et al. (2020). The calculated sleep quality scores ranges from 0 to
+14, where a lower scores denotes better sleep quality.
+}
+\examples{
+sleep_score(dynamic_data)
 }
 \references{
 Arora, A., Chakraborty, P., & Bhatia, M. P. S. (2020). Analysis of Data from Wearable
-Sensors for Sleep Quality Estimation and Prediction Using Deep Learning. Arabian Journal
-for Science and Engineering, 45(12), 10793-10812. \doi{10.1007/s13369-020-04877-w}
+Sensors for Sleep Quality Estimation and Prediction Using Deep Learning. Arabian Journal for
+Science and Engineering, 45(12), 10793-10812. \doi{10.1007/s13369-020-04877-w}
 }
 \seealso{
 \code{\link[=sleep_duration]{sleep_duration()}}, \code{\link[=sleep_efficiency]{sleep_efficiency()}}, \code{\link[=sleep_chart]{sleep_chart()}}

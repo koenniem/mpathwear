@@ -30,6 +30,17 @@ A data frame with columns for \code{day} and \code{SleepOnSetLatency} (in second
 Calculates the time between getting into bed and falling asleep for each night.
 This is the duration from the first \code{SleepInBedBinary} to the first \code{SleepStateBinary}.
 }
+\examples{
+# Calculate the sleep onset latency from
+# intraday (dynamic) data.
+sleep_onset_latency(dynamic_data)
+
+# We can compare this to the sleep onset latency from the
+# daily data.
+# Note that in the daily data, the sleep onset latency is shown
+# in minutes instead of seconds.
+daily_data[daily_data$variable == "SleepLatency", c("day", "value")]
+}
 \seealso{
 \code{\link[=sleep_efficiency]{sleep_efficiency()}}, \code{\link[=sleep_score]{sleep_score()}}, \code{\link[=sleep_chart]{sleep_chart()}}
 }

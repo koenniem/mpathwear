@@ -32,3 +32,6 @@ A \link[ggplot2:ggplot]{ggplot2::ggplot} object displaying respiration rate meas
 \description{
 Creates a visualization of respiration rate measurements over time from wearable data.
 }
+\examples{
+respiration_chart(dynamic_data)
+}

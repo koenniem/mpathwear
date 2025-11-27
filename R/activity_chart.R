@@ -14,6 +14,13 @@
 #'   step counts
 #'
 #' @export
+#'
+#' @examples
+#' # Show a single timeline
+#' activity_chart(dynamic_data)
+#'
+#' # Display activities with transitions
+#' activity_chart(dynamic_data, merged_bars = FALSE)
 activity_chart <- function(
   .data,
   start = "start_time",
@@ -130,6 +137,13 @@ activity_chart <- function(
 #' @seealso [activity_chart()] for activity types, [steps_chart()] for step counts
 #'
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' # Activity intensity are not available in the example data,
+#' # but this is how you would show them:
+#' activity_intensity_chart(dynamic_data)
+#' }
 activity_intensity_chart <- function(
   .data,
   start = "start_time",
@@ -169,6 +183,9 @@ activity_intensity_chart <- function(
 #'   levels
 #'
 #' @export
+#'
+#' @examples
+#' steps_chart(dynamic_data)
 steps_chart <- function(
   .data,
   start = "start_time",

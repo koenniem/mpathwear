@@ -33,6 +33,9 @@ A \link[ggplot2:ggplot]{ggplot2::ggplot} object displaying discrete stress state
 Creates a visualization of discrete stress states (Low, Medium, High) over time from
 wearable data.
 }
+\examples{
+stress_chart_discrete(dynamic_data)
+}
 \seealso{
 \code{\link[=stress_chart]{stress_chart()}} for continuous stress levels
 }

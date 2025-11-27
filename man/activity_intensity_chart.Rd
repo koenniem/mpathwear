@@ -33,6 +33,13 @@ A \link[ggplot2:ggplot]{ggplot2::ggplot} object displaying activity intensity le
 Creates a visualization of activity intensity levels (Sedentary, Low, Medium, High) over time
 from wearable data.
 }
+\examples{
+\dontrun{
+# Activity intensity are not available in the example data,
+# but this is how you would show them:
+activity_intensity_chart(dynamic_data)
+}
+}
 \seealso{
 \code{\link[=activity_chart]{activity_chart()}} for activity types, \code{\link[=steps_chart]{steps_chart()}} for step counts
 }

@@ -36,6 +36,13 @@ part of the default m-Path data output.
 \description{
 This function reads one more multiple CSV files containing wearable data exported from m-Path.
 }
+\examples{
+# Your path to the data, or in this case the package example data.
+# Note that this can also be a folder containing several files.
+path <- system.file("extdata", "example.csv", package = "mpathwear")
+
+read_mpathwear(path)
+}
 \seealso{
 \code{\link[=clean_dynamic_data]{clean_dynamic_data()}} and \code{\link[=clean_daily_data]{clean_daily_data()}} for unpacking the dynamic and daily data.
 }

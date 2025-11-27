@@ -37,6 +37,13 @@ A \link[ggplot2:ggplot]{ggplot2::ggplot} object displaying HRV measurements face
 Creates a visualization of heart rate variability measurements over time from wearable data.
 HRV metrics include RMSSD, SDNN, and SDRR.
 }
+\examples{
+\dontrun{
+# HRV is not available in the example data,
+# but this is how you would call the function:
+hrv_chart(dynamic_data)
+}
+}
 \seealso{
 \code{\link[=heart_rate_chart]{heart_rate_chart()}} for heart rate measurements
 }

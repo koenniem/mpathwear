@@ -7,6 +7,9 @@
 #' @return A [ggplot2::ggplot] object displaying respiration rate measurements faceted by date.
 #'
 #' @export
+#'
+#' @examples
+#' respiration_chart(dynamic_data)
 respiration_chart <- function(
   .data,
   start = "start_time",

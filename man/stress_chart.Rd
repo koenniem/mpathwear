@@ -37,6 +37,9 @@ A \link[ggplot2:ggplot]{ggplot2::ggplot} object displaying stress levels faceted
 Creates a visualization of continuous stress level measurements over time from wearable data.
 Stress values are shown on a scale of 0 to 100.
 }
+\examples{
+stress_chart(dynamic_data)
+}
 \seealso{
 \code{\link[=stress_chart_discrete]{stress_chart_discrete()}} for discrete stress states
 }

@@ -34,6 +34,13 @@ A \link[ggplot2:ggplot]{ggplot2::ggplot} object displaying sleep stages faceted 
 Creates a visualization of sleep stages (Awake, REM, Light, Deep) over time from wearable
 data. The chart shows sleep stage transitions throughout each night.
 }
+\examples{
+# Show the sleep chart of a single participant
+sleep_chart(dynamic_data)
+
+# Optionally, show the sleep chart without bed and wakeup times
+sleep_chart(dynamic_data, add_bed_time = FALSE)
+}
 \seealso{
 \code{\link[=sleep_duration]{sleep_duration()}}, \code{\link[=sleep_efficiency]{sleep_efficiency()}}, \code{\link[=sleep_score]{sleep_score()}} for sleep metrics
 }

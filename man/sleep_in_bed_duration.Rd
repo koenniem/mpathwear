@@ -30,6 +30,17 @@ A data frame with columns for \code{day} and \code{SleepInBedDuration} (in secon
 Calculates the total duration spent in bed (from first to last sleep-related measurement)
 for each night, regardless of whether the person was asleep or awake.
 }
+\examples{
+# Calculate the total sleep in bed duration
+# from intraday (dynamic) data.
+sleep_in_bed_duration(dynamic_data)
+
+# We can compare this to the sleep in bed duration from the
+# daily data.
+# Note that in the daily data, the sleep in bed duration
+# is shown in minutes instead of seconds.
+daily_data[daily_data$variable == "SleepInBedDuration", c("day", "value")]
+}
 \seealso{
 \code{\link[=sleep_duration]{sleep_duration()}}, \code{\link[=sleep_efficiency]{sleep_efficiency()}}, \code{\link[=sleep_chart]{sleep_chart()}}
 }

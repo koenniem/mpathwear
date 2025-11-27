@@ -29,6 +29,17 @@ A data frame with columns for \code{day} and \code{SleepDeepDuration} (in second
 \description{
 Calculates the total time spent in deep sleep for each night from intraday wearable data.
 }
+\examples{
+# Calculate the total deep sleep duration from
+# intraday (dynamic) data.
+sleep_deep_duration(dynamic_data)
+
+# We can compare this to the deep sleep duration from the
+# daily data.
+# Note that in the daily data, the deep sleep duration is shown
+# in minutes instead of seconds.
+daily_data[daily_data$variable == "SleepDeepDuration", c("day", "value")]
+}
 \seealso{
 \code{\link[=sleep_rem_duration]{sleep_rem_duration()}}, \code{\link[=sleep_duration]{sleep_duration()}}, \code{\link[=sleep_chart]{sleep_chart()}}
 }

@@ -12,6 +12,9 @@
 #' @seealso [hrv_chart()] for heart rate variability
 #'
 #' @export
+#'
+#' @examples
+#' heart_rate_chart(dynamic_data)
 heart_rate_chart <- function(
   .data,
   start = "start_time",
@@ -76,6 +79,13 @@ heart_rate_chart <- function(
 #' @seealso [heart_rate_chart()] for heart rate measurements
 #'
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' # HRV is not available in the example data,
+#' # but this is how you would call the function:
+#' hrv_chart(dynamic_data)
+#' }
 hrv_chart <- function(
   .data,
   start = "start_time",

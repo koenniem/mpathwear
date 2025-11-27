@@ -30,6 +30,17 @@ A data frame with columns for \code{day} and \code{SleepDuration} (in seconds).
 Calculates the total time spent asleep (excluding awake periods) for each night from
 intraday wearable data. This includes light, REM, and deep sleep stages.
 }
+\examples{
+# Calculate the total sleep duration from
+# intraday (dynamic) data.
+sleep_duration(dynamic_data)
+
+# We can compare this to the sleep duration from the
+# daily data.
+# Note that in the daily data, the sleep duration is shown
+# in minutes instead of seconds.
+daily_data[daily_data$variable == "SleepDuration", c("day", "value")]
+}
 \seealso{
 \code{\link[=sleep_efficiency]{sleep_efficiency()}}, \code{\link[=sleep_score]{sleep_score()}}, \code{\link[=sleep_chart]{sleep_chart()}}
 }

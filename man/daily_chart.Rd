@@ -21,6 +21,7 @@ A \link[ggplot2:ggplot]{ggplot2::ggplot} object displaying daily metrics as line
 variable type.
 }
 \description{
-Creates a line chart visualization of daily summary wearable data metrics over time.
+Creates a line chart visualization of daily summary wearable data metrics over time for a single
+participant.
 Each variable is displayed in its own facet with points connected by lines.
 }

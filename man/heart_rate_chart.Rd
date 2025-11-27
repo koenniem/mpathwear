@@ -37,6 +37,9 @@ A \link[ggplot2:ggplot]{ggplot2::ggplot} object displaying heart rate measuremen
 Creates a visualization of heart rate measurements over time from wearable data.
 The chart displays heart rate values with optional daily average lines.
 }
+\examples{
+heart_rate_chart(dynamic_data)
+}
 \seealso{
 \code{\link[=hrv_chart]{hrv_chart()}} for heart rate variability
 }

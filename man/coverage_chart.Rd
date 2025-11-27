@@ -35,6 +35,9 @@ participant, faceted by variable type.
 Creates a visualization showing the temporal coverage of wearable data across participants
 and variable types. This is useful for assessing data completeness and identifying gaps.
 }
+\examples{
+coverage_chart(dynamic_data)
+}
 \seealso{
 \code{\link[=daily_coverage_chart]{daily_coverage_chart()}} for daily-level coverage
 }

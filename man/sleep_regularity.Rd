@@ -39,6 +39,9 @@ disease, depression, and cardiovascular diseases.
 \note{
 This function requires the \code{mpathsenser} package to be installed.
 }
+\examples{
+sleep_regularity(dynamic_data)
+}
 \seealso{
 \code{\link[=sleep_score]{sleep_score()}}, \code{\link[=sleep_chart]{sleep_chart()}}
 }

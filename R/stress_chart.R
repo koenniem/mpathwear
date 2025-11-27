@@ -12,6 +12,9 @@
 #' @seealso [stress_chart_discrete()] for discrete stress states
 #'
 #' @export
+#'
+#' @examples
+#' stress_chart(dynamic_data)
 stress_chart <- function(
   .data,
   start = "start_time",
@@ -65,6 +68,9 @@ stress_chart <- function(
 #' @seealso [stress_chart()] for continuous stress levels
 #'
 #' @export
+#'
+#' @examples
+#' stress_chart_discrete(dynamic_data)
 stress_chart_discrete <- function(
   .data,
   start = "start_time",

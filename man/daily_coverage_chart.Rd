@@ -29,6 +29,9 @@ faceted by variable type.
 Creates a tile-based visualization showing which days have data coverage for each participant
 and variable type. This provides a clear overview of data availability at the daily level.
 }
+\examples{
+daily_coverage_chart(daily_data)
+}
 \seealso{
 \code{\link[=coverage_chart]{coverage_chart()}} for intraday coverage
 }

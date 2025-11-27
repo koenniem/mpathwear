@@ -33,6 +33,9 @@ A \link[ggplot2:ggplot]{ggplot2::ggplot} object displaying cumulative step count
 Creates a visualization of cumulative step counts over time from wearable data. The chart
 displays steps as a line graph with the cumulative count building up throughout each day.
 }
+\examples{
+steps_chart(dynamic_data)
+}
 \seealso{
 \code{\link[=activity_chart]{activity_chart()}} for activity types, \code{\link[=activity_intensity_chart]{activity_intensity_chart()}} for intensity
 levels

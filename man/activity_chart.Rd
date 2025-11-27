@@ -38,6 +38,13 @@ Creates a visualization of activity types over time from wearable data. The char
 activities either as merged horizontal bars per day or as individual activity segments with
 transitions.
 }
+\examples{
+# Show a single timeline
+activity_chart(dynamic_data)
+
+# Display activities with transitions
+activity_chart(dynamic_data, merged_bars = FALSE)
+}
 \seealso{
 \code{\link[=activity_intensity_chart]{activity_intensity_chart()}} for activity intensity levels, \code{\link[=steps_chart]{steps_chart()}} for
 step counts
