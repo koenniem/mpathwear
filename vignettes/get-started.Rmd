@@ -1,0 +1,184 @@
+---
+title: "Get started"
+output: rmarkdown::html_vignette
+description: >
+  How to get started with mpathwear? This vignette takes a 
+  look at some example data and provides a practical starting
+  point on working with the package.
+vignette: >
+  %\VignetteIndexEntry{get-started}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 7,
+  fig.height = 6
+)
+```
+
+
+**Installing**
+
+You can install `mpathwear` from Github.
+
+```{r install, eval = FALSE}
+remotes::install_github("koenniem/mpathwear")
+```
+
+Let's load some libraries we will use for this vignette.
+```{r}
+library(dplyr)
+library(mpathwear)
+```
+
+
+## Overview
+
+This vignette shows a minimal workflow for using the `mpathwear` package. In this vignette, we will
+use the example data included with the package. This example dataset was downloaded directly from 
+m-Path (see the 
+[manual](https://manual.m-path.io/knowledge-base/wearables/#4-exporting-wearable-data) for how to
+download the data) and should thus be very similar to a dataset from a real study. 
+
+First, we will set a `path` variable that points to the data, in this case from within `mpathwear`:
+
+```{r read-data, eval = TRUE}
+# Path to the example data shipped with the package
+path <- system.file("extdata", "example.csv", package = "mpathwear")
+```
+
+Next, we can use the `read_mpathwear()` function to read the data into R. 
+
+Note that if you downloaded the data iteratively from m-Path (e.g. every day to have backups), the 
+data will overlap as the data export in m-Path is cumulative. Nevertheless, `read_mpathwear()` will 
+automatically remove duplicate rows but this will fail if a day was not yet completed.
+
+```{r}
+# Read the data (this can also be a directory containing multiple exported CSVs)
+raw <- read_mpathwear(path)
+
+head(raw)
+```
+
+
+## Cleaning the data
+`read_mpathwear()` returns the raw exported rows containing JSON-encoded daily and dynamic
+measurements. The functions `clean_daily_data()` and `clean_dynamic_data()` unpack these JSON
+blobs and return tidy tibbles suitable for plotting and analysis.
+
+```{r clean-dynamic-data}
+# Clean interday (daily) summary data
+# Drop the dynamicData column since this cannot be combined with daily data anyway
+daily <- raw |> 
+  select(-"dynamicData") |>
+  clean_daily_data()
+
+glimpse(daily)
+```
+
+For larger datasets, `clean_dynamic_data()` may take some time to finish running (e.g. several) 
+minutes.
+
+```{r clean-daily-data, eval = TRUE}
+# Clean intraday (dynamic) data
+# Drop the dailyData column since this cannot be combined with dynamic data anyway
+dynamic <- raw |> 
+  select(-"dailyData") |> 
+  clean_dynamic_data()
+
+glimpse(dynamic)
+```
+
+## Example charts
+
+Below are a few example charts that demonstrate common visualizations for wearable data. For an 
+overview of all charting functions, see the 
+[reference section](https://koenniem.github.io/mpathwear/reference).
+
+### Coverage
+First of all, we may want to know to what extent data was actually gathered. We can inspect this
+using a coverage chart that plots whether data was present or absent over time. For the daily data,
+we can use `daily_coverage_chart()` that plots each participant ID on the y-axis and day number 
+(`0` for day 1, `1` for day 2 etc.) on the x-axis with variables displayed as facets. This gives you
+a good indication of how complete the data is.
+
+Note that not necessarily all variables will be present for all days. First of all, some devices
+may not support some variables which means that they will always be absent. Second, some variables
+are not continuous but rather event-driven. For instance, if there was no high activity event on a
+certain day, the `ActivityHighDuration` will be absent. In a way, this is an implicit `0` that you
+may want to take into account when running analyses.
+
+```{r}
+daily_coverage_chart(daily)
+```
+We can do the same thing for the intraday data using `coverage_chart()`, only here are the bars not
+per day but more saliently displayed by their duration. So, while the daily coverage chart shows you
+whether data is present or not for that day, the intradaily coverage chart shows you how often
+data is collected across time spans.
+
+Like the daily coverage chart, "missing" data does not need to be truly missing. For instance, 
+`RunBinary` does not occur if the participant did not run during the recorded period. On the other 
+hand, one would hope that `HeartRate` is somewhat continuously present. In conclusion, this chart
+shows you how often data is present for each variable over time.
+
+```{r}
+coverage_chart(dynamic)
+```
+
+### Daily summary chart
+
+The `daily_chart()` function visualizes daily summary variables over time for a single participant. 
+Each variable is plotted in its own facet.
+
+```{r daily-chart}
+daily_chart(daily)
+```
+
+### Activity timeline
+
+Show activity types across days using `activity_chart()`.
+
+```{r activity-chart}
+activity_chart(dynamic)
+```
+
+### Heart rate
+
+If heart rate is present in the intraday data, `heart_rate_chart()` shows the beat-to-beat or
+sampled heart rate traces across time.
+
+```{r heart-rate-chart}
+heart_rate_chart(dynamic)
+```
+
+## Sleep
+
+The package includes helpers for sleep visualisation and commonly used sleep metrics. The
+`sleep_chart()` function visualises sleep stages (awake, REM, light, deep) across nights. The
+other helpers compute durations and scores from intraday (dynamic) data.
+
+```{r sleep-chart}
+sleep_chart(dynamic)
+```
+
+Below we show a few of the sleep metric helpers. Each returns a tibble with `day` and the
+corresponding metric (in seconds for intraday-derived metrics). To merge them, we can use `Reduce()`
+to call each function and add them to the result using `full_join()`.
+
+```{r sleep-metrics}
+Reduce(
+  \(x, y) full_join(x, y, by = "day"),
+  list(
+    sleep_duration(dynamic),
+    sleep_deep_duration(dynamic),
+    sleep_rem_duration(dynamic),
+    sleep_light_duration(dynamic),
+    sleep_awake_duration(dynamic)
+  )
+)
+```
+

@@ -23,7 +23,9 @@ Imports:
     stringr,
     tidyr
 Suggests: 
+    knitr,
     mpathsenser,
+    rmarkdown,
     rvest,
     testthat (>= 3.0.0),
     usethis
@@ -32,3 +34,4 @@ Depends:
 LazyData: true
 URL: https://github.com/koenniem/mpathwear, https://koenniem.github.io/mpathwear/
 BugReports: https://github.com/koenniem/mpathwear/issues
+VignetteBuilder: knitr
