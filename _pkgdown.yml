@@ -69,4 +69,6 @@ reference:
     contents:
       - activity_types
       - codebook
+      - daily_data
       - data_sources
+      - dynamic_data

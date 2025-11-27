@@ -56,3 +56,65 @@
 #' @source <https://docs-old.thryve.health/biomarkers.php>
 #' @source <https://docs-old.thryve.health/analytics.php>
 "codebook"
+
+#' Example dataset of daily measurements
+#'
+#' A dataset containing example 7 days of daily measurements for a single participant. Exported from
+#' m-Path and cleaned using [clean_daily_data()] for demonstration purposes.
+#'
+#' @format ## `daily_data` A data frame with 387 rows and 18 columns:
+#' \describe{
+#'   \item{connectionId}{The participant ID in m-Path.}
+#'   \item{legacyCode}{The legacy invitation code format. Corresponds directly to `code`.}
+#'   \item{code}{The invitation code used in the study, if any.}
+#'   \item{alias}{The alias of the participant (can be changed by the participant at any point).}
+#'   \item{initials}{The initials of the participant based on the first seen alias.}
+#'   \item{accountCode}{The account code of the researcher.}
+#'   \item{lastCreatedAtUnix}{The last Unix timestamp at which the wearable data was updated.}
+#'   \item{day}{The day of the measurement.}
+#'   \item{category}{The overall category of the measurement.}
+#'   \item{subcategory}{The more specific category of the measurement.}
+#'   \item{variable}{The variable name of the measurement.}
+#'   \item{value}{The value of the measurement.}
+#'   \item{timezoneOffset}{The timezone offset of the measurement compared to UTC.}
+#'   \item{generation}{Whether the measurement was  a calculation, automatic measurement, or manual
+#'   input.}
+#'   \item{created_at}{The time the measurement was created or updated.}
+#'   \item{data_source}{The data source of the measurement. Also see [data_sources].}
+#'   \item{description}{The description of the measurement.}
+#'   \item{available_sources}{The available data sources (e.g. Garmin, Fitbit) for this type of
+#'   measurement.}
+#' }
+"daily_data"
+
+#' Example dataset of intradaily (i.e. dynamic) measurements
+#'
+#' A dataset containing example 7 days of intradaily (i.e. dynamic) measurements for a single
+#' participant. Exported from m-Path and cleaned using [clean_dynamic_data()] for demonstration
+#' purposes.
+#'
+#' @format ## `dynamic_data` A data frame with 37,332 rows and 19 columns:
+#' \describe{
+#'   \item{connectionId}{The participant ID in m-Path.}
+#'   \item{legacyCode}{The legacy invitation code format. Corresponds directly to `code`.}
+#'   \item{code}{The invitation code used in the study, if any.}
+#'   \item{alias}{The alias of the participant (can be changed by the participant at any point).}
+#'   \item{initials}{The initials of the participant based on the first seen alias.}
+#'   \item{accountCode}{The account code of the researcher.}
+#'   \item{lastCreatedAtUnix}{The last Unix timestamp at which the wearable data was updated.}
+#'   \item{start_time}{The start time of the measurement.}
+#'   \item{end_time}{The end time of the measurement.}
+#'   \item{category}{The overall category of the measurement.}
+#'   \item{subcategory}{The more specific category of the measurement.}
+#'   \item{variable}{The variable name of the measurement.}
+#'   \item{value}{The value of the measurement.}
+#'   \item{tz_offset}{The timezone offset of the measurement compared to UTC.}
+#'   \item{generation}{Whether the measurement was  a calculation, automatic measurement, or manual
+#'   input.}
+#'   \item{created_at}{The time the measurement was created or updated.}
+#'   \item{data_source}{The data source of the measurement. Also see [data_sources].}
+#'   \item{description}{The description of the measurement.}
+#'   \item{available_sources}{The available data sources (e.g. Garmin, Fitbit) for this type of
+#'   measurement.}
+#' }
+"dynamic_data"
