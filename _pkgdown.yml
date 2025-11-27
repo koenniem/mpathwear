@@ -58,6 +58,7 @@ reference:
       - sleep_duration
       - sleep_efficiency
       - sleep_in_bed_duration
+      - sleep_light_duration
       - sleep_onset_latency
       - sleep_regularity
       - sleep_rem_duration

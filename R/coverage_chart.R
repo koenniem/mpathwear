@@ -14,6 +14,9 @@
 #' @seealso [daily_coverage_chart()] for daily-level coverage
 #'
 #' @export
+#'
+#' @examples
+#' coverage_chart(dynamic_data)
 coverage_chart <- function(
   .data,
   participant = "connectionId",
@@ -84,6 +87,9 @@ coverage_chart <- function(
 #' @seealso [coverage_chart()] for intraday coverage
 #'
 #' @export
+#'
+#' @examples
+#' daily_coverage_chart(daily_data)
 daily_coverage_chart <- function(
   .data,
   participant = "connectionId",
