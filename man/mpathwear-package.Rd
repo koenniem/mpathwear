@@ -6,6 +6,8 @@
 \alias{mpathwear-package}
 \title{mpathwear: Imports and visualises wearable data from 'm-Path'}
 \description{
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
 What the package does (one paragraph).
 }
 \seealso{

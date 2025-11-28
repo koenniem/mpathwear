@@ -36,7 +36,7 @@ measurement.}
 dynamic_data
 }
 \description{
-A dataset containing example 7 days of intradaily (i.e. dynamic) measurements for a single
+A dataset containing example 15 days of intradaily (i.e. dynamic) measurements for a single
 participant. Exported from m-Path and cleaned using \code{\link[=clean_dynamic_data]{clean_dynamic_data()}} for demonstration
 purposes.
 }

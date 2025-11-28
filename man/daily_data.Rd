@@ -35,7 +35,7 @@ measurement.}
 daily_data
 }
 \description{
-A dataset containing example 7 days of daily measurements for a single participant. Exported from
+A dataset containing example 15 days of daily measurements for a single participant. Exported from
 m-Path and cleaned using \code{\link[=clean_daily_data]{clean_daily_data()}} for demonstration purposes.
 }
 \keyword{datasets}
