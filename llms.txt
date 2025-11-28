@@ -16,6 +16,21 @@ You can install the development version of mpathwear from Github:
 remotes::install_github("koenniem/mpathwear")
 ```
 
+# Reference
+
+For an overview of all functions in this package, see the [mpathwear
+Reference Site](https://koenniem.github.io/mpathwear/). For other m-Path
+related data, see [mpathr](https://github.com/m-path-io/mpathr) for
+regular m-Path questionnaire data, and
+[mpathsenser](https://github.com/koenniem/mpathsenser) for m-Path sensor
+data.
+
+## Getting help
+
+If you encounter a clear bug or need help getting a function to run,
+please file an issue with a minimal reproducible example on
+[Github](https://github.com/koenniem/mpathwear/issues).
+
 ## Code of Conduct
 
 Please note that the mpathwear project is released with a [Contributor

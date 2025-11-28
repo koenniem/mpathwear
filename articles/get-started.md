@@ -156,7 +156,7 @@ data was present or absent over time. For the daily data, we can use
 [`daily_coverage_chart()`](https://koenniem.github.io/mpathwear/reference/daily_coverage_chart.md)
 that plots each participant ID on the y-axis and day number (`0` for day
 1, `1` for day 2 etc.) on the x-axis with variables displayed as facets.
-This gives you a good indication of how complete the data is.
+This gives a good indication of how complete the data is.
 
 Note that not necessarily all variables will be present for all days.
 First of all, some devices may not support some variables which means
@@ -170,13 +170,14 @@ account when running analyses.
 daily_coverage_chart(daily)
 ```
 
-![](get-started_files/figure-html/unnamed-chunk-3-1.png) We can do the
-same thing for the intraday data using
+![](get-started_files/figure-html/unnamed-chunk-3-1.png)
+
+We can do the same thing for the intraday data using
 [`coverage_chart()`](https://koenniem.github.io/mpathwear/reference/coverage_chart.md),
-only here are the bars not per day but more saliently displayed by their
+only here are the bars not per day but rather displayed by their actual
 duration. So, while the daily coverage chart shows you whether data is
-present or not for that day, the intradaily coverage chart shows you how
-often data is collected across time spans.
+present or not for that day, the intradaily coverage chart shows exactly
+how often data is collected across time spans.
 
 Like the daily coverage chart, “missing” data does not need to be truly
 missing. For instance, `RunBinary` does not occur if the participant did
@@ -216,9 +217,9 @@ activity_chart(dynamic)
 
 ### Heart rate
 
-If heart rate is present in the intraday data,
 [`heart_rate_chart()`](https://koenniem.github.io/mpathwear/reference/heart_rate_chart.md)
-shows the beat-to-beat or sampled heart rate traces across time.
+shows the heart rate over time as well as the average heart rate of that
+day.
 
 ``` r
 heart_rate_chart(dynamic)
@@ -256,28 +257,25 @@ Reduce(
   list(
     sleep_duration(dynamic),
     sleep_deep_duration(dynamic),
-    sleep_rem_duration(dynamic),
-    sleep_light_duration(dynamic),
-    sleep_awake_duration(dynamic)
+    sleep_efficiency(dynamic)
   )
 )
-#> # A tibble: 15 × 6
-#>    day        SleepDuration SleepDeepDuration SleepREMDuration
-#>    <date>             <int>             <int>            <int>
-#>  1 2025-11-12         23520              2460             4260
-#>  2 2025-11-13         25440              4320             3600
-#>  3 2025-11-14         26700              5580             1680
-#>  4 2025-11-15         35158              6120             2878
-#>  5 2025-11-16         30600              4020             4740
-#>  6 2025-11-17         25140              3360             4800
-#>  7 2025-11-18         29640              4860             3960
-#>  8 2025-11-19         26820              4140             3240
-#>  9 2025-11-20         31500              4620             4680
-#> 10 2025-11-21         29520              7620             2880
-#> 11 2025-11-22         36780              6000             5400
-#> 12 2025-11-23         31971              3360             2811
-#> 13 2025-11-24         25920              4260             3480
-#> 14 2025-11-25         28500              8220             3000
-#> 15 2025-11-26         22440              3720               NA
-#> # ℹ 2 more variables: SleepLightDuration <int>, SleepAwakeDuration <int>
+#> # A tibble: 15 × 4
+#>    day        SleepDuration SleepDeepDuration SleepEfficiency
+#>    <date>             <int>             <int>           <dbl>
+#>  1 2025-11-12         23520              2460           0.974
+#>  2 2025-11-13         25440              4320           0.955
+#>  3 2025-11-14         26700              5580           0.942
+#>  4 2025-11-15         35158              6120           0.915
+#>  5 2025-11-16         30600              4020           0.973
+#>  6 2025-11-17         25140              3360           0.990
+#>  7 2025-11-18         29640              4860           0.868
+#>  8 2025-11-19         26820              4140           0.908
+#>  9 2025-11-20         31500              4620           0.882
+#> 10 2025-11-21         29520              7620           0.941
+#> 11 2025-11-22         36780              6000           0.845
+#> 12 2025-11-23         31971              3360           0.872
+#> 13 2025-11-24         25920              4260           0.898
+#> 14 2025-11-25         28500              8220           0.928
+#> 15 2025-11-26         22440              3720           0.888
 ```

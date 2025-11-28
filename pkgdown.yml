@@ -3,7 +3,7 @@ pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   get-started: get-started.html
-last_built: 2025-11-27T16:32Z
+last_built: 2025-11-28T11:31Z
 urls:
   reference: https://koenniem.github.io/mpathwear/reference
   article: https://koenniem.github.io/mpathwear/articles
