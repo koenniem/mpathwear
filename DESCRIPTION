@@ -1,6 +1,6 @@
 Package: mpathwear
 Title: Imports and visualises wearable data from 'm-Path'
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: 
     person("Koen", "Niemeijer", , "koen.niemeijer@kuleuven.be", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-0816-534X"))
