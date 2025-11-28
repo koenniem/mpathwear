@@ -59,7 +59,7 @@
 
 #' Example dataset of daily measurements
 #'
-#' A dataset containing example 7 days of daily measurements for a single participant. Exported from
+#' A dataset containing example 15 days of daily measurements for a single participant. Exported from
 #' m-Path and cleaned using [clean_daily_data()] for demonstration purposes.
 #'
 #' @format ## `daily_data` A data frame with 387 rows and 18 columns:
@@ -89,7 +89,7 @@
 
 #' Example dataset of intradaily (i.e. dynamic) measurements
 #'
-#' A dataset containing example 7 days of intradaily (i.e. dynamic) measurements for a single
+#' A dataset containing example 15 days of intradaily (i.e. dynamic) measurements for a single
 #' participant. Exported from m-Path and cleaned using [clean_dynamic_data()] for demonstration
 #' purposes.
 #'

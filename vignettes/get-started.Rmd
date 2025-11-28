@@ -15,8 +15,8 @@ vignette: >
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.width = 7,
-  fig.height = 6
+  fig.width = 9,
+  fig.height = 7
 )
 ```
 
@@ -103,7 +103,7 @@ overview of all charting functions, see the
 First of all, we may want to know to what extent data was actually gathered. We can inspect this
 using a coverage chart that plots whether data was present or absent over time. For the daily data,
 we can use `daily_coverage_chart()` that plots each participant ID on the y-axis and day number 
-(`0` for day 1, `1` for day 2 etc.) on the x-axis with variables displayed as facets. This gives you
+(`0` for day 1, `1` for day 2 etc.) on the x-axis with variables displayed as facets. This gives 
 a good indication of how complete the data is.
 
 Note that not necessarily all variables will be present for all days. First of all, some devices
@@ -115,9 +115,10 @@ may want to take into account when running analyses.
 ```{r}
 daily_coverage_chart(daily)
 ```
+
 We can do the same thing for the intraday data using `coverage_chart()`, only here are the bars not
-per day but more saliently displayed by their duration. So, while the daily coverage chart shows you
-whether data is present or not for that day, the intradaily coverage chart shows you how often
+per day but rather displayed by their actual duration. So, while the daily coverage chart shows you
+whether data is present or not for that day, the intradaily coverage chart shows exactly how often
 data is collected across time spans.
 
 Like the daily coverage chart, "missing" data does not need to be truly missing. For instance, 
@@ -148,8 +149,7 @@ activity_chart(dynamic)
 
 ### Heart rate
 
-If heart rate is present in the intraday data, `heart_rate_chart()` shows the beat-to-beat or
-sampled heart rate traces across time.
+`heart_rate_chart()` shows the heart rate over time as well as the average heart rate of that day.
 
 ```{r heart-rate-chart}
 heart_rate_chart(dynamic)
@@ -175,9 +175,7 @@ Reduce(
   list(
     sleep_duration(dynamic),
     sleep_deep_duration(dynamic),
-    sleep_rem_duration(dynamic),
-    sleep_light_duration(dynamic),
-    sleep_awake_duration(dynamic)
+    sleep_efficiency(dynamic)
   )
 )
 ```
